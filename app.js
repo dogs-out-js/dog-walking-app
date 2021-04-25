@@ -23,11 +23,13 @@ const projectName = "dogs-out";
 const capitalized = (string) =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
+app.locals.title = `${capitalized(projectName)} is an app created to help dog owners to find dog walkers in the nearby.`;
 
 // 👇 Start handling routes here
-const index = require("./routes/index");
-app.use("/", index);
+app.use("/", require("./routes/index"));
+app.use("/owner-profile", require("./routes/owner-profile"));
+app.use("/walker-profile", require("./routes/walker-profile"))
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
