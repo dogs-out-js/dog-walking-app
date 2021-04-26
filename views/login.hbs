@@ -1,0 +1,18 @@
+<div>
+    <img src="/public/images/undraw_relaxing_walk_mljx.svg" alt="login image">
+</div>
+<h2>The best dog walking app in Berlin!</h2>
+
+<form action="auth/login" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+    <button type="submit">Log In</button>
+</form>
+
+<a href="">Create new account</a>
+{{#if message}}
+    <p style="color: red">{{message}}</p>   
+{{/if}}

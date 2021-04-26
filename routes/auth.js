@@ -64,9 +64,10 @@ router.post('/signupOwner', (req, res) => {
     }
     if (username === '') {
       res.render('signup', { message: `Your username can't be empty` });
-    }
+    
       return;
     }
+    
     Owner.findOne({ username: username })
       .then(ownerFromDB => {
         if (ownerFromDB !== null) {
