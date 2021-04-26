@@ -1,4 +1,4 @@
-// OWNER signup
+OWNER signup
 router.post('/signupOwner', (req, res) => {
     //console.log("Owner signup")
     const { username, password } = req.body;
@@ -40,5 +40,5 @@ router.post('/signupOwner', (req, res) => {
     })
   });
   
-  module.exports = router;
+module.exports = router;
   

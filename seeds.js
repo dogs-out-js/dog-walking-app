@@ -57,7 +57,7 @@ const walkers = [
         password: 'oliviaolivia',
         walkerExperience: '2 years of experience as dog walker and trainer.',
         walkerImg: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        price: '$6 per hour'
+        price: '$10 per hour'
     },
     {
         username: 'Mark',
@@ -65,7 +65,7 @@ const walkers = [
         password: 'markmark',
         walkerExperience: 'I have my own doggo and can take yours for a walk together.',
         walkerImg: 'https://images.unsplash.com/photo-1528900403525-dc523d4f18d6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8eW91bmclMjBtYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
-        price: '$5 per hour'
+        price: '$8 per hour'
     },
     {
         username: 'Peter',
@@ -73,7 +73,7 @@ const walkers = [
         password: 'peterpeter',
         walkerExperience: 'Certified dog trainer, can also dogsit your doggo.',
         walkerImg: 'https://media.istockphoto.com/photos/portrait-of-handsome-smiling-young-man-with-crossed-arms-picture-id1200677760?k=6&m=1200677760&s=612x612&w=0&h=IXURU5rnCRyN5h5ebeDLQcVv0lNs0ZLgE98fPioSMnQ=',
-        price: '$10 per hour with training, $6 per hour of walking only'
+        price: '$15 per hour with training, $10 per hour of walking only'
     }
 ]
 

@@ -27,11 +27,13 @@ app.locals.title = `${capitalized(projectName)} is an app created to help dog ow
 
 // 👇 Start handling routes here
 app.use("/", require("./routes/index"));
-app.use("/owner-profile", require("./routes/owner-profile"));
-app.use("/walker-profile", require("./routes/walker-profile"))
+// app.use("/owner-profile", require("./routes/owner-profile"));
+// app.use("/walker-profile", require("./routes/walker-profile"))
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
 module.exports = app;
+
+
