@@ -5,6 +5,7 @@ const walkerSchema = new Schema({
     type: String,
     unique: true,
   },
+  email: String,
   password: String,
   walkerExperience: {
     type: String,

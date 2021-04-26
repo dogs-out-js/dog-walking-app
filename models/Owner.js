@@ -5,6 +5,7 @@ const ownerSchema = new Schema({
     type: String,
     unique: true,
   },
+  email: String,
   password: String,
   dogBreed: String,
   dogName: String,
@@ -18,6 +19,10 @@ const ownerSchema = new Schema({
       type: Boolean,
       default: false
     }
+  },
+  dogSize: {
+    type: String,
+    options: ['small doggo', 'medium doggo', 'big doggo'],
   },
   dogsSpecialNeeds: String,
   ownerImg: String
