@@ -1,0 +1,30 @@
+<h2>Edit your profile</h2>
+
+
+<form action="/owner-details/{{owner._id}}/edit" method="POST" enctype="multipart/form-data">
+
+<div>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" value={{owner.username}}>
+    </div>
+
+    <div>
+        <label for="dogAge">Your dog's age: </label>
+        <input type="text" name="dogAge" id="dogAge" required value={{owner.dogAge}}>
+    </div>
+  
+    <div>
+        <label for="photo">Photo of the dog: </label>
+        <input type="file" name="photo" id="photo">
+    </div>
+    <div>
+        <label for="experience">Describe your doggo's special needs: </label>
+        <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities">
+    </div>
+</div>
+
+    <button class="btn" type="submit">Update profile</button>
+
+</form>
+
