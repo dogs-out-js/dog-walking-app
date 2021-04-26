@@ -18,7 +18,8 @@ const walkerSchema = new Schema({
       default: false
     }
   },
-  walkerImg: String
+  walkerImg: String,
+  price: String
 });
 
 const Walker = model("Walker", walkerSchema);
