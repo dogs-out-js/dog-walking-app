@@ -26,11 +26,41 @@ const capitalized = (string) =>
 app.locals.title = `${capitalized(projectName)} is an app created to help dog owners to find dog walkers in the nearby.`;
 
 // 👇 Start handling routes here
+
 app.use("/", require("./routes/index"));
+const index = require("./routes/index");
+const owner = require("./routes/owner");
+const walker = require("./routes/walker");
+app.use("/", index);
+ app.use("/owner", owner);
+ app.use("/walker", walker);
 
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+require("./config")(app);
+
+// session configuration
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('./db/index');
+const { urlencoded } = require("express");
+
+app.use(
+  session({
+    secret: 'keyboard cat',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    saveUninitialized: false,
+    resave: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    })
+  })
+)
+
 module.exports = app;
+
+

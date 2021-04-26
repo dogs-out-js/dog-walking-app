@@ -1,3 +1,4 @@
+
 const router = require("express").Router();
 const Owner = require('../models/Owner');
 const Walker = require('../models/Walker');
@@ -51,16 +52,19 @@ router.post('/login', (req, res) => {
 
 })
 
+
 //OWNER signup
 router.post('/signupOwner', (req, res) => {
     //console.log("Owner signup")
     const { username, password } = req.body;
     console.log(username, password);
     if (password.length < 8) {
+
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
     }
     if (username === '') {
       res.render('signup', { message: `Your username can't be empty` });
+    }
       return;
     }
     Owner.findOne({ username: username })
@@ -91,13 +95,18 @@ router.post('/signupOwner', (req, res) => {
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
     }
     if (username === '') {
+
       res.render('signup', { message: `Your username can't be empty` });
+
+
       return;
     }
     Walker.findOne({ username: username })
       .then(walkerFromDB => {
         if (walkerFromDB !== null) {
+
           res.render('signup', { message: 'Username is already taken, choose another one.' });
+
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
