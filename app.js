@@ -27,11 +27,11 @@ app.locals.title = `${capitalized(projectName)} is an app created to help dog ow
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
-const owner = require("./routes/owner-profile");
-const walker = require("./routes/walker-profile");
+const owner = require("./routes/owner");
+const walker = require("./routes/walker");
 app.use("/", index);
- app.use("/owner-profile", owner);
- app.use("/walker-profile", walker);
+ app.use("/owner", owner);
+ app.use("/walker", walker);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
