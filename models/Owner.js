@@ -19,7 +19,8 @@ const ownerSchema = new Schema({
       default: false
     }
   },
-  ownerPreferences: String,
+  dogsSpecialNeeds: String,
+  ownerImg: String
 });
 
 const Owner = model("Owner", ownerSchema);
