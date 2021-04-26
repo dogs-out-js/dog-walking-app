@@ -34,6 +34,27 @@ app.use("/", require("./routes/index"));
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+require("./config")(app);
+
+// session configuration
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('./db/index');
+const { urlencoded } = require("express");
+
+app.use(
+  session({
+    secret: 'keyboard cat',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    saveUninitialized: false,
+    resave: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    })
+  })
+)
+
 module.exports = app;
 
 
