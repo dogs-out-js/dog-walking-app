@@ -85,3 +85,5 @@ Walker.insertMany(walkers)
   .catch(err => {
     console.log(err)
   })
+
+  module.exports = mongoose;
