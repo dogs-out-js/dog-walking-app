@@ -1,0 +1,22 @@
+<h1>Owner's profile</h1>
+
+<div>
+    {{#with owner}}
+    <div>
+        <img src="{{dogImg}}" alt="photo for {{username}}">
+        <p><strong> Owner's name: </strong>{{username}}</p>
+        <p><strong> Your dog's name: </strong>{{dogName}}</p>
+    </div>
+
+    <div>
+
+        <div>
+            <p><strong> Breed:</strong> {{dogBreed}}</p>
+            <p><strong> Your dog's age:</strong> {{dogAge}}</p>
+            <p><strong> Size of your dog: </strong>{{dogSize}}</p>
+            <p><strong> Special needs: </strong>{{dogsSpecialNeeds}}</p>
+        </div>
+    </div>
+</div>
+
+{{/with}}

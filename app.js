@@ -26,6 +26,7 @@ const capitalized = (string) =>
 app.locals.title = `${capitalized(projectName)} is an app created to help dog owners to find dog walkers in the nearby.`;
 
 // 👇 Start handling routes here
+
 app.use("/", require("./routes/index"));
 const index = require("./routes/index");
 const owner = require("./routes/owner");

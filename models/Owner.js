@@ -25,7 +25,7 @@ const ownerSchema = new Schema({
     options: ['small doggo', 'medium doggo', 'big doggo'],
   },
   dogsSpecialNeeds: String,
-  ownerImg: String
+  dogImg: String
 });
 
 const Owner = model("Owner", ownerSchema);
