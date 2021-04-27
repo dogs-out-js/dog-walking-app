@@ -79,7 +79,7 @@ router.post('/signupOwner', (req, res) => {
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
-          Owner.create({ username: username, password: hash })
+          Owner.create({ username: username, password: hash, dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" })
             .then(ownerFromDB => {
               console.log("ownerFromDB",ownerFromDB);
               
@@ -94,9 +94,7 @@ router.post('/signupOwner', (req, res) => {
 
   //WALKER signup
   router.post('/signupWalker', (req, res) => {
-
     const { username, password, email } = req.body;
-  
     if (password.length < 8) {
       return res.render('signup-walker', { message: 'Your password has to be minimum 8 characters long.' });
     }
@@ -114,10 +112,10 @@ router.post('/signupOwner', (req, res) => {
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
-          Walker.create({ username: username, password: hash, email: email })
+          Walker.create({ username: username, password: hash, email: email, walkerExperience: "", walkerImg: "", price: ""})
             .then(walkerFromDB => {
               //console.log(walkerFromDB);
-              res.render('received-requests');
+              res.render('received-requests', {walkerFromDB});
             })
         }
       })

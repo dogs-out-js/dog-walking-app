@@ -17,11 +17,20 @@ router.get('/owner/:id', (req, res, next) => {
 })
 
 router.get('/received-requests/:id', (req, res, next) => {
-    res.render('/walker/received-requests');
+    res.render('/received-requests');
 })
 
-router.get('/incoming-requests', (req, res, next) => {
+router.get('/received-requests', (req, res, next) => {
     res.render('received-requests');
+})
+
+router.get('/profile', (req, res, next) => {
+    //console.log('req.session.user', req.session.user)
+    //let {username, walkerImg, walkerExperience,} = req.session.user;
+    let currentUser = req.session.user
+    console.log(currentUser.username);
+    res.render('walker/profile', {currentUser});
+    
 })
 
 module.exports = router;
