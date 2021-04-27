@@ -19,7 +19,7 @@ const walkerSchema = new Schema({
     }
   },
   walkerImg: String,
-  price: String
+  price: String,
   location: {
     type: String,
     city: String,
