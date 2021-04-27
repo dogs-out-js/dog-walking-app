@@ -82,7 +82,8 @@ router.post('/signupOwner', (req, res) => {
           Owner.create({ username: username, password: hash })
             .then(ownerFromDB => {
               console.log(ownerFromDB);
-              res.redirect('/owner');
+              
+              res.redirect('/owner/find-walkers');
             })
         }
       })
