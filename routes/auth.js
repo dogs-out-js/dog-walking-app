@@ -16,7 +16,7 @@ router.get("/signup/owner", (req, res, next) => {
 
 // signup as a Walker
 router.get("/signup/walker", (req, res, next) => {
-    res.render("signup", { walker: 'true' });
+    res.render("signup-walker", { walker: 'true' });
 });
   
 // login
@@ -38,7 +38,7 @@ router.post('/login', (req, res) => {
             } else if (ownerFromDB !== null) {
                 if (bcrypt.compareSync(password, ownerFromDB.password)) {
                     req.session.user = ownerFromDB;
-                    res.render('views/index.hbs', { owner: ownerFromDB });
+                    res.render('owner/find-walkers', { owner: ownerFromDB });
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
                 // username exists as an walker
                 if (bcrypt.compareSync(password, walkerFromDB.password)) {
                   req.session.user = walkerFromDB;
-                    res.render('walker/index.hbs', { walker: walkerFromDB });
+                    res.render('received-requests', { walker: walkerFromDB });
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -62,7 +62,7 @@ router.post('/login', (req, res) => {
 router.post('/signupOwner', (req, res) => {
     //console.log("Owner signup")
     const { username, password } = req.body;
-    console.log(username, password);
+    console.log("username and password", username, password);
     if (password.length < 8) {
 
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
@@ -81,7 +81,7 @@ router.post('/signupOwner', (req, res) => {
           const hash = bcrypt.hashSync(password, salt)
           Owner.create({ username: username, password: hash })
             .then(ownerFromDB => {
-              console.log(ownerFromDB);
+              console.log("ownerFromDB",ownerFromDB);
               
               res.redirect('/owner/find-walkers');
             })
@@ -98,11 +98,11 @@ router.post('/signupOwner', (req, res) => {
     const { username, password, email } = req.body;
   
     if (password.length < 8) {
-      return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
+      return res.render('signup-walker', { message: 'Your password has to be minimum 8 characters long.' });
     }
     if (username === '') {
 
-      res.render('signup', { message: `Your username can't be empty` });
+      res.render('signup-walker', { message: `Your username can't be empty` });
 
 
       return;
@@ -110,16 +110,14 @@ router.post('/signupOwner', (req, res) => {
     Walker.findOne({ username: username })
       .then(walkerFromDB => {
         if (walkerFromDB !== null) {
-
-          res.render('signup', { message: 'Username is already taken, choose another one.' });
-
+          res.render('signup-walker', { message: 'Username is already taken, choose another one.' });
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
           Walker.create({ username: username, password: hash, email: email })
             .then(walkerFromDB => {
-              console.log(walkerFromDB);
-              res.redirect('/login');
+              //console.log(walkerFromDB);
+              res.render('received-requests');
             })
         }
       })
