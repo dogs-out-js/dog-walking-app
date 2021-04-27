@@ -16,4 +16,8 @@ router.get('/owner/:id', (req, res, next) => {
           })
 })
 
+router.get('/received-requests/:id', (req, res, next) => {
+    res.render('/walker/received-requests');
+})
+
 module.exports = router;

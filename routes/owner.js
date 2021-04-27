@@ -25,10 +25,22 @@ router.get('/walker/:id', (req, res, next) => {
           })
 })
 
-router.get('/request', (req, res, next) => {
+
+router.get('/request/:id', (req, res, next) => {
     const walkerId = req.params.id;
-    res.render('owner/request', {walkerId});
+    Walker.findById(walkerId)
+        .then(walker => {  
+            res.render('owner/request', {sendToInfo: walker})
+        })
+        .catch(err => {
+            next(err);
+          })
 })
+
+
+
+
+
 
 // router.get('/profile', (req, res, next) => {
 //     const {user} = req.session.user;

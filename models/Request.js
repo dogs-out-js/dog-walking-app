@@ -1,11 +1,21 @@
+mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
+ObjectId = Schema.ObjectId;
+
 
 const requestSchema = new Schema({
     date: Date,
     time: String,
-    duration: Number
-    //include link to owner id
-    //include link to walkerid / link to dog id
+    duration: Number,
+    // sentBy: { //owner id, ommitted while login is not working
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     required: true
+    // },
+    sentTo: { //walker id
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Walker",
+        required: true
+    }
 });
 
 const Request = model("Request", requestSchema);

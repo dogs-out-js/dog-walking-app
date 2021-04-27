@@ -88,7 +88,7 @@ router.post('/signupOwner', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
 });
 
   //WALKER signup
