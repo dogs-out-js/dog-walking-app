@@ -69,7 +69,6 @@ router.post('/signupOwner', (req, res) => {
     }
     if (username === '') {
       res.render('signup', { message: `Your username can't be empty` });
-    
       return;
     }
     
@@ -89,8 +88,8 @@ router.post('/signupOwner', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-      })
-  });
+      }),
+});
 
   //WALKER signup
   router.post('/signupWalker', (req, res) => {
