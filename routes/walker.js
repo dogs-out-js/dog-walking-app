@@ -20,4 +20,8 @@ router.get('/received-requests/:id', (req, res, next) => {
     res.render('/walker/received-requests');
 })
 
+router.get('/incoming-requests', (req, res, next) => {
+    res.render('received-requests');
+})
+
 module.exports = router;

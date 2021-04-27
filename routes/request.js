@@ -20,6 +20,7 @@ router.post('/received-requests/:id', (req, res, next) => {
         sentTo: walkerId
     })
     .then((request) => {
+        //res.redirect('request-succesful');
         res.render('received-requests', {requestDetails: request})
         //res.redirect('received-requests', {request})
     })
@@ -31,5 +32,11 @@ router.post('/received-requests/:id', (req, res, next) => {
 router.get('/received-requests/:id', (req, res, next) => {
     res.render('received-requests');
 })
+
+router.get('/request-successful', (req, res, next) => {
+    res.render('owner/request-successful');
+})
+
+
 
 module.exports = router;
