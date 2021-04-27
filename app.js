@@ -18,6 +18,25 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
+// session configuration
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('./db/index');
+const { urlencoded } = require("express");
+
+app.use(
+  session({
+    secret: 'keyboard cat',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    saveUninitialized: false,
+    resave: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    })
+  })
+)
+
 // default value for title local
 const projectName = "dogs-out";
 const capitalized = (string) =>
@@ -45,24 +64,7 @@ require("./error-handling")(app);
 
 require("./config")(app);
 
-// session configuration
 
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const mongoose = require('./db/index');
-const { urlencoded } = require("express");
-
-app.use(
-  session({
-    secret: 'keyboard cat',
-    cookie: { maxAge: 1000 * 60 * 60 * 24 },
-    saveUninitialized: false,
-    resave: true,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-    })
-  })
-)
 
 module.exports = app;
 
