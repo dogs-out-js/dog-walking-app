@@ -1,10 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: 'Montserrat', Helvetica, Arial;
+  margin: 0;
+  padding: 0;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  /* width: 375px; */
+  /* padding: 50px; */
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+}
+
+.screenSetup{
+  margin: 0 auto;
+  width: 374px;
+  height: 812px;
+}
+
+.centerItems{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backgroundRect{
+  background-color: #FFE0B2;
+  width: 375px;
+  height: 257px;
+  position: absolute;
+  z-index: -1;
+}
+
+.backgroundCircle{
+  background-color: #FFE0B2;
+  height: 375px;
+  width: 375px; 
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 62px; 
+  z-index: -1;
+
+}
+
+#indexImage{
+  width: 274px;
+  margin-top: 160px;
+}
+button {
+  width: 226px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #F9A826;
+  border: none;
+}
+button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+button a:visited{
+  color: black;
 }
 
 a {
-  color: #00b7ff;
+  color: #F9A826, 100%;
+}
+
+a:visited{
+  color: #F9A826;
 }
 
 h1 {

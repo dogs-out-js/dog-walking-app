@@ -3,4 +3,11 @@
 {{!-- Show all the available dog walkers --}}
 {{#each walkerList}}
 <a href="/owner/walker/{{id}}">{{username}}</a><br>
+<p>{{price}}</p>
 {{/each}}
+
+<nav>
+    <a href="/owner/find-walkers">Search</a>
+    <a href="">Walks</a>
+    <a href="/owner/profile">My Profile</a>
+</nav>

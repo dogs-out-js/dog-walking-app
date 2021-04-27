@@ -20,6 +20,8 @@ const walkerSchema = new Schema({
   },
   walkerImg: String,
   price: String
+  //request id, (bij opnieuw laden van pagina)
+  //andere optie is push notificatie bij een walker, getriggert nadat request word aangemaakt(voor als gebruker al online is), software: pusher?.
 });
 
 const Walker = model("Walker", walkerSchema);

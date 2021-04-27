@@ -4,6 +4,11 @@ const Owner = require('../models/Owner');
 const Walker = require('../models/Walker');
 const bcrypt = require('bcrypt');
 
+//signup choice
+router.get("/signupChoice", (req, res, next) => {
+  res.render("signupChoice", {});
+})
+
 //signup as an Owner
 router.get("/signup/owner", (req, res, next) => {
   res.render("signup", { owner: 'true' });
@@ -66,6 +71,7 @@ router.post('/signupOwner', (req, res) => {
       res.render('signup', { message: `Your username can't be empty` });
       return;
     }
+    
     Owner.findOne({ username: username })
       .then(ownerFromDB => {
         if (ownerFromDB !== null) {
