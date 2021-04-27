@@ -10,17 +10,53 @@
     </div>
 
     <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" value={{owner.email}}>
+    </div>
+
+    <div>
+        <label for="dogBreed">Dog breed: </label>
+        <input type="text" name="dogBreed" id="dogBreed" value={{owner.dogBreed}}>
+    </div>
+
+    <div>
+        <label for="dogName">Dog name: </label>
+        <input type="text" name="dogName" id="dogName" value={{owner.dogName}}>
+    </div>
+
+    <div>
         <label for="dogAge">Your dog's age: </label>
-        <input type="text" name="dogAge" id="dogAge" required value={{owner.dogAge}}>
+        <input type="text" name="dogAge" id="dogAge" value={{owner.dogAge}}>
+    </div>
+
+    <div>
+        <label for="dogSize">Dog size: </label>
+        <select name="dogSize" id="dogSize" value="dogSize">
+          <option value="small">Small doggo</option>
+          <option value="medium">Medium doggo</option>
+          <option value="large">Big doggo</option>
+        </select>
     </div>
   
     <div>
-        <label for="photo">Photo of the dog: </label>
+        <label for="dogImg">Photo of the dog: </label>
         <input type="file" name="photo" id="photo">
     </div>
     <div>
         <label for="dogsSpecialNeeds">Describe your doggo's special needs: </label>
         <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities">
+    </div>
+
+    <div>
+        <label for="location">Location: </label>
+        <input type="text" name="city" id="city" value="{{owner.location.city}}">
+
+    </div>
+
+    <div>
+        <label for="location">Location: </label>
+        <input type="text" name="street" id="street" value="{{owner.location.street}}">
+
     </div>
 </div>
 
