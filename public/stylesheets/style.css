@@ -116,3 +116,21 @@ input[type=password] {
   margin: 0px 0px 15px 0px;  
 }
 
+#signupChoice h2{
+  margin: 0px 0px 52px 0px; 
+}
+#signupChoice img:nth-of-type(2){
+  width: 240px;
+  height: 280;
+  margin: 73px 0px 25px 0px;
+}
+
+#signupChoice button{
+  height: 105px;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+}
+
+#signupChoice a{
+  font-size: 18;
+}
