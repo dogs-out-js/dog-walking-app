@@ -37,6 +37,12 @@ router.get('/request/:id', (req, res, next) => {
           })
 })
 
+router.get('/profile', (req, res, next) => {
+    let currentUser = req.session.user;
+    console.log(currentUser.username);
+
+})
+
 
 
 
