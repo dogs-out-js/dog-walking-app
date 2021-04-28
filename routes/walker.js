@@ -3,6 +3,7 @@ const router = require("express").Router();
 const { Router } = require("express");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
+const Request = require("../models/Request");
 
 
 router.get('/owner/:id', (req, res, next) => {
@@ -16,12 +17,18 @@ router.get('/owner/:id', (req, res, next) => {
           })
 })
 
-router.get('/received-requests/:id', (req, res, next) => {
-    res.render('/received-requests');
-})
-
-router.get('/received-requests', (req, res, next) => {
-    res.render('received-requests');
+router.get('/incoming-requests', (req, res, next) => {
+    const walkerId = req.session.user._id;
+    console.log(walkerId)
+    Request.find({sentTo: walkerId})
+        .then((request) => {
+            console.log(request);
+            res.render('walker/incoming-requests', {requestList: request});
+        })
+        .catch(err => {
+            next(err);
+          })
+    
 })
 
 router.get('/profile', (req, res, next) => {
@@ -29,8 +36,10 @@ router.get('/profile', (req, res, next) => {
     //let {username, walkerImg, walkerExperience,} = req.session.user;
     let currentUser = req.session.user
     console.log(currentUser.username);
-    res.render('walker/profile', {currentUser});
-    
+    res.render('walker/profile', {currentUser});  
 })
+
+
+
 
 module.exports = router;

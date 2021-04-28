@@ -1,6 +1,7 @@
 
 const router = require("express").Router();
 const { Router } = require("express");
+const Request = require("../models/Request");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
 
@@ -65,11 +66,9 @@ router.get('/profile', (req, res, next) => {
         .then(currentOwner => {
             res.render('owner/owner-details', {currentOwner})
         })
-
     .catch(err => {
         next(err);
-      })
-    
+      })  
 })
 
 

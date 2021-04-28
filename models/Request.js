@@ -7,10 +7,11 @@ const requestSchema = new Schema({
     date: Date,
     time: String,
     duration: Number,
-    // sentBy: { //owner id, ommitted while login is not working
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true
-    // },
+    sentBy: { //owner id, ommitted while login is not working
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Owner",
+        required: true
+    },
     sentTo: { //walker id
         type: mongoose.Schema.Types.ObjectId,
         ref: "Walker",

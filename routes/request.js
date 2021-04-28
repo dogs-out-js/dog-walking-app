@@ -7,7 +7,9 @@ const Request = require("../models/Request");
 
 router.post('/received-requests/:id', (req, res, next) => {
     const walkerId = req.params.id;
-    console.log(walkerId);
+    const ownerId = req.session.user._id
+    //console.log(req.session._id);
+    //console.log(walkerId);
     // console.log('owner', req.session.user);
     //date, time, duration, sentBy, sentTo
     let {date, time, duration} = req.body;
@@ -16,7 +18,7 @@ router.post('/received-requests/:id', (req, res, next) => {
         date: date,
         time: time,
         duration: duration,
-        //sentBy: [to add],
+        sentBy: ownerId,
         sentTo: walkerId
     })
     .then((request) => {
@@ -30,6 +32,7 @@ router.post('/received-requests/:id', (req, res, next) => {
 })
 
 router.get('/received-requests/:id', (req, res, next) => {
+   
     res.render('received-requests');
 })
 
