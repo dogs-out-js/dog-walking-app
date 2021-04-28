@@ -45,12 +45,15 @@ router.get('/edit', (req, res, next) => {
 
 router.post('/profile', (req, res, next) => {
     let currentOwner = req.session.user;
-    const {username, dogName, dogBreed, dogAge, dogSize, dogSpecialNeeds, location} = req.body;
-    Owner.findByIdAndUpdate(req.session.user.id, {username: username, dogname: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogSpecialNeeds: dogSpecialNeeds, location: location}, {new: true})
+    //console.log("req.session.userid",req.session);
+    //console.log(req.body);
+    const {username, dogName, dogBreed, dogAge, dogSize, dogsSpecialNeeds, dogImg, location} = req.body;
+    //console.log("elements of currentowner",username, dogName)
+    Owner.findByIdAndUpdate(req.session.user._id, {username: req.body.username, dogName: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogsSpecialNeeds: dogsSpecialNeeds, dogImg: dogImg, location: location}, {new: true})
         .then((updatedOwner) => {
             //res.json({data: updatedOwner});
-            console.log("updatedOwner", updatedOwner);
-            console.log(`The entry for "${req.session.user.id}" has been updated`);
+            //console.log("updatedOwner", updatedOwner);
+            //console.log(`The entry for "${req.session.user.id}" has been updated`);
             res.redirect('/owner/profile');
         })
         .catch(err => {
@@ -59,8 +62,16 @@ router.post('/profile', (req, res, next) => {
 })
 
 router.get('/profile', (req, res, next) => {
-    let currentOwner = req.session.user;
-    res.render('owner/owner-details', {currentOwner})
+    Owner.findById(req.session.user._id)
+        .then(currentOwner => {
+            res.render('owner/owner-details', {currentOwner})
+        })
+    //let currentOwner = req.session.user;
+    //console.log("currentowner", currentOwner)
+    .catch(err => {
+        next(err);
+      })
+    
 })
 
 
