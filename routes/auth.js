@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
                 // username exists as an walker
                 if (bcrypt.compareSync(password, walkerFromDB.password)) {
                   req.session.user = walkerFromDB;
-                    res.render('received-requests', { walker: walkerFromDB });
+                    res.render('walker/incoming-requests', { walker: walkerFromDB });
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -79,11 +79,11 @@ router.post('/signupOwner', (req, res) => {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
           Owner.create({ username: username, password: hash})
-          // , dogBreed:"", dogName: "", dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" 
+  
             .then(ownerFromDB => {
               console.log("ownerFromDB",ownerFromDB);
               
-              res.redirect('/owner/find-walkers');
+              res.redirect('login');
             })
         }
       })
@@ -115,7 +115,7 @@ router.post('/signupOwner', (req, res) => {
           Walker.create({ username: username, password: hash, email: email, walkerExperience: "", walkerImg: "", price: ""})
             .then(walkerFromDB => {
               //console.log(walkerFromDB);
-              res.render('received-requests', {walkerFromDB});
+              res.render('login', {walkerFromDB});
             })
         }
       })
