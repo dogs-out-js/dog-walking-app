@@ -1,32 +1,32 @@
 <h2>Edit your profile</h2>
 
-
-<form action="/owner-details/{{owner._id}}/edit" method="POST" enctype="multipart/form-data">
+{{#with currentOwner}}
+<form action="/owner/profile" method="POST" enctype="multipart/form-data">
 
 <div>
     <div>
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username" value={{owner.username}}>
+        <input type="text" name="username" id="username" value={{username}}>
     </div>
 
     <div>
         <label for="email">Email: </label>
-        <input type="email" name="email" id="email" value={{owner.email}}>
+        <input type="email" name="email" id="email" value={{email}}>
     </div>
 
     <div>
         <label for="dogBreed">Dog breed: </label>
-        <input type="text" name="dogBreed" id="dogBreed" value={{owner.dogBreed}}>
+        <input type="text" name="dogBreed" id="dogBreed" value={{dogBreed}}>
     </div>
 
     <div>
         <label for="dogName">Dog name: </label>
-        <input type="text" name="dogName" id="dogName" value={{owner.dogName}}>
+        <input type="text" name="dogName" id="dogName" value={{dogName}}>
     </div>
 
     <div>
         <label for="dogAge">Your dog's age: </label>
-        <input type="text" name="dogAge" id="dogAge" value={{owner.dogAge}}>
+        <input type="text" name="dogAge" id="dogAge" value={{dogAge}}>
     </div>
 
     <div>
@@ -49,13 +49,13 @@
 
     <div>
         <label for="location">Location: </label>
-        <input type="text" name="city" id="city" value="{{owner.location.city}}">
+        <input type="text" name="city" id="city" value="{{location.city}}">
 
     </div>
 
     <div>
         <label for="location">Location: </label>
-        <input type="text" name="street" id="street" value="{{owner.location.street}}">
+        <input type="text" name="street" id="street" value="{{location.street}}">
 
     </div>
 </div>
@@ -63,4 +63,4 @@
     <button class="btn" type="submit">Update profile</button>
 
 </form>
-
+{{/with}}
