@@ -62,9 +62,8 @@ router.post('/login', (req, res) => {
 router.post('/signupOwner', (req, res) => {
     //console.log("Owner signup")
     const { username, password } = req.body;
-    console.log("username and password", username, password);
+    //console.log("username and password", username, password);
     if (password.length < 8) {
-
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
     }
     if (username === '') {
@@ -79,7 +78,8 @@ router.post('/signupOwner', (req, res) => {
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
-          Owner.create({ username: username, password: hash, dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" })
+          Owner.create({ username: username, password: hash})
+          // , dogBreed:"", dogName: "", dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" 
             .then(ownerFromDB => {
               console.log("ownerFromDB",ownerFromDB);
               

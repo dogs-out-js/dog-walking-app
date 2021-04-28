@@ -1,10 +1,11 @@
 <h1>Owner's profile</h1>
 
 <div>
-    {{#with owner}}
+    {{#with currentOwner}}
     <div>
         <img src="{{dogImg}}" alt="photo for {{username}}">
-        <p><strong> Owner's name: </strong>{{username}}</p>
+        <h2>{{username}}</h2>
+        
         <p><strong> Your dog's name: </strong>{{dogName}}</p>
         <p><strong>Your location: </strong>{{location}}</p>
     </div>
