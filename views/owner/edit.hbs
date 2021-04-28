@@ -45,23 +45,22 @@
     </div>
     <div>
         <label for="dogsSpecialNeeds">Describe your doggo's special needs: </label>
-        <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities">
+        <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities" value={{dogsSpecialNeeds}}>
     </div>
 
     <div>
-        <label for="location">Location: </label>
+        <label for="location">City: </label>
         <input type="text" name="city" id="city" value="{{location.city}}">
 
     </div>
 
     <div>
-        <label for="location">Location: </label>
+        <label for="location">Street: </label>
         <input type="text" name="street" id="street" value="{{location.street}}">
 
     </div>
 </div>
 
     <button class="btn" type="submit">Update profile</button>
-
 </form>
 {{/with}}

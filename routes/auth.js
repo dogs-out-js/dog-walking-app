@@ -78,7 +78,7 @@ router.post('/signupOwner', (req, res) => {
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
-          Owner.create({ username: username, password: hash, dogName:""})
+          Owner.create({ username: username, password: hash})
           // , dogBreed:"", dogName: "", dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" 
             .then(ownerFromDB => {
               console.log("ownerFromDB",ownerFromDB);

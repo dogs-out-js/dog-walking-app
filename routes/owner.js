@@ -38,22 +38,21 @@ router.get('/request/:id', (req, res, next) => {
 })
 
 router.get('/edit', (req, res, next) => {
-    let currentOwner = req.session.user;
-    console.log("currentowner", currentOwner);
-    res.render('owner/edit', {currentOwner})
+    
+    Owner.findById(req.session.user._id)
+        .then(currentOwner => {
+            console.log(currentOwner);
+            res.render('owner/edit', {currentOwner});
+        })
+    //console.log("currentowner", currentOwner);
+    
 })
 
 router.post('/profile', (req, res, next) => {
     let currentOwner = req.session.user;
-    //console.log("req.session.userid",req.session);
-    //console.log(req.body);
-    const {username, dogName, dogBreed, dogAge, dogSize, dogsSpecialNeeds, dogImg, location} = req.body;
-    //console.log("elements of currentowner",username, dogName)
-    Owner.findByIdAndUpdate(req.session.user._id, {username: req.body.username, dogName: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogsSpecialNeeds: dogsSpecialNeeds, dogImg: dogImg, location: location}, {new: true})
+    const {username, email, dogName, dogBreed, dogAge, dogSize, dogsSpecialNeeds, dogImg, location} = req.body;
+    Owner.findByIdAndUpdate(req.session.user._id, {username: req.body.username, email: email, dogName: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogsSpecialNeeds: dogsSpecialNeeds, dogImg: dogImg, location: location}, {new: true})
         .then((updatedOwner) => {
-            //res.json({data: updatedOwner});
-            //console.log("updatedOwner", updatedOwner);
-            //console.log(`The entry for "${req.session.user.id}" has been updated`);
             res.redirect('/owner/profile');
         })
         .catch(err => {
@@ -66,8 +65,7 @@ router.get('/profile', (req, res, next) => {
         .then(currentOwner => {
             res.render('owner/owner-details', {currentOwner})
         })
-    //let currentOwner = req.session.user;
-    //console.log("currentowner", currentOwner)
+
     .catch(err => {
         next(err);
       })
