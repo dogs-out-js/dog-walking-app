@@ -20,11 +20,18 @@ const walkerSchema = new Schema({
   },
   walkerImg: String,
   price: String,
-  location: {
-    city: String,
-    district: String,
-    street: String
-  }
+  location: String
+  
+  // location: {
+  //   type: {
+  //     type: String,
+  //     enum: ['Point']
+  //   }
+  // location: {
+  //   city: String,
+  //   district: String,
+  //   street: String
+  // }
   //request id, (bij opnieuw laden van pagina)
   //andere optie is push notificatie bij een walker, getriggert nadat request word aangemaakt(voor als gebruker al online is), software: pusher?.
 });

@@ -59,7 +59,7 @@ router.get('/edit', (req, res, next) => {
 
 router.post('/profile', (req, res, next) => {
     let currentWalker = req.session.user;
-    const {username, email, walkerExperience, walkerImg, price, street, city} = req.body;
+    const {username, email, walkerExperience, walkerImg, price, location} = req.body;
     
     Walker.findByIdAndUpdate(req.session.user._id, {
         username: req.body.username, 
@@ -67,11 +67,7 @@ router.post('/profile', (req, res, next) => {
         walkerExperience: walkerExperience, 
         walkerImg: walkerImg, 
         price: price, 
-        location: 
-            {
-            street,
-            city
-            }
+        location: location
         }, {new: true})
         .then((updatedWalker) => {
             res.redirect('/walker/profile');
