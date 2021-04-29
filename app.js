@@ -58,7 +58,7 @@ const index = require("./routes/index");
 const owner = require("./routes/owner");
 const walker = require("./routes/walker");
 const auth = require("./routes/auth");
-const request = require("./routes/request")
+const request = require("./routes/request");
 app.use("/", index);
  app.use("/owner", owner);
  app.use("/walker", walker);
