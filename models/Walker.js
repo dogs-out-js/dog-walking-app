@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const geocoder = require("geocoder");
 
 const walkerSchema = new Schema({
   username: {
@@ -24,7 +25,7 @@ const walkerSchema = new Schema({
     type: String,
     city: String,
     district: String,
-    street: String
+    street: String,
   }
   //request id, (bij opnieuw laden van pagina)
   //andere optie is push notificatie bij een walker, getriggert nadat request word aangemaakt(voor als gebruker al online is), software: pusher?.
