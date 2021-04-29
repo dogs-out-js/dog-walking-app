@@ -42,12 +42,7 @@ const walkerSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  location: {
-    city: String,
-    district: String,
-    street: String
-
-  }
+  
   //request id, (bij opnieuw laden van pagina)
   //andere optie is push notificatie bij een walker, getriggert nadat request word aangemaakt(voor als gebruker al online is), software: pusher?.
 });
