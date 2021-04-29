@@ -41,7 +41,7 @@ const walkerSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-
+  },
   location: {
     city: String,
     district: String,
