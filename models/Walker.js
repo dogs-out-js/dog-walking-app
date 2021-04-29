@@ -22,6 +22,8 @@ const walkerSchema = new Schema({
   },
   walkerImg: String,
   price: String,
+  city: String,
+  district: String,
 
 
   address: {

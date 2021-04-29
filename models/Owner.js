@@ -26,6 +26,8 @@ const ownerSchema = new Schema({
   },
   dogsSpecialNeeds: String,
   dogImg: String,
+  city: String,
+  district: String,
   location: {
     type: String,
     city: String,
