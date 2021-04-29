@@ -27,8 +27,10 @@ router.get('/walker/:id', (req, res, next) => {
 })
 
 
+
 router.get('/request/:id', (req, res, next) => {
     const walkerId = req.params.id;
+    console.log("walkerid",walkerId);
     Walker.findById(walkerId)
         .then(walker => {  
             res.render('owner/request', {sendToInfo: walker})
