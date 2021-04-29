@@ -1,1 +1,24 @@
 <h2>Planned walks</h2>
+
+{{#each plannedWalkDetails}}
+    <h3>Walk {{sentBy}}'s dog </h2>
+
+    <p>Date: {{date}}</p>
+    <p>Time: {{time}}</p>
+    <p>Duration: {{duration}} minutes</p>
+
+    {{!-- <form action="/walker/accept/{{_id}}" method="POST">
+        <input class="accept-btn" type="submit" name="accept" value="Accept">
+    </form> --}}
+
+     <form action="/walker/reject/{{_id}}" method="POST">
+        <input class="reject-btn" type="submit" name="accept" value="Cancel this walk">
+    </form>
+
+{{/each}}
+
+<nav>
+    <a href="/walker/incoming-requests">Walk requests</a>
+    <a href="/walker/planned-walks">Planned walks</a>
+    <a href="/walker/profile">My Profile</a>
+</nav>
