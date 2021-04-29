@@ -14,7 +14,18 @@
 <div>
     <p>Experience: {{walkerExperience}}</p>
 </div>
-<button><a href="/owner/request/{{_id}}">Contact walker</a></button>
 
 {{/with}}
+
+{{#with walkerDetails.location}}
+<div>
+    <p>City: {{city}}</p>
+</div>
+
+<div>
+    <p>Street: {{street}}</p>
+</div>
+{{/with}}
+
+<button><a href="/owner/request/{{_id}}">Contact walker</a></button>
 
