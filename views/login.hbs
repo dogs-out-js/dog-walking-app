@@ -1,0 +1,27 @@
+
+<div id='login' class="screenSetup centerItems">
+    <h2>The best dog walking app in Berlin!</h2>
+    <img class='backgroundShape' src="/images/bg-shape-large.svg" alt="">
+    <img src="/images/undraw_relaxing_walk_mljx.svg" alt="login image">
+
+    
+
+    <form action="/auth/login" method="POST">
+    <div>
+        <label for="username"></label>
+        <input type="text" name="username" id="username" placeholder="username">
+    </div>
+
+    <div>
+        <label for="password"></label>
+        <input type="password" name="password" id="password" placeholder="password"required>
+    </div>
+
+        <button type="submit">Log In</button>
+    </form>
+
+    <a href="/auth/signupChoice">Create new account</a>
+    {{#if message}}
+        <p style="color: red">{{message}}</p>   
+    {{/if}}
+</div>

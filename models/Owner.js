@@ -25,7 +25,13 @@ const ownerSchema = new Schema({
     options: ['small doggo', 'medium doggo', 'big doggo'],
   },
   dogsSpecialNeeds: String,
-  ownerImg: String
+  dogImg: String,
+  location: {
+    type: String,
+    city: String,
+    district: String,
+    street: String
+  }
 });
 
 const Owner = model("Owner", ownerSchema);
