@@ -1,8 +1,3 @@
-// const Walker = require("../../models/Walker");
-import{Walker} 
-
-
-
 const acceptBtns = document.querySelectorAll("#accept");
 console.log(acceptBtns);
 
