@@ -67,6 +67,8 @@ button {
   border-radius: 25px;
   background-color: #F9A826;
   border: none;
+  font-size: 18px;
+  font-weight: 600;
 }
 button a{
   text-decoration: none;
@@ -149,7 +151,6 @@ input[type=password] {
   margin: 0 auto;
   height: 100%;
   width: auto;
-
 }
 
 .profileBox{
@@ -169,5 +170,68 @@ input[type=password] {
 }
 
 #walkerDetails h2{
+  padding-top: 50px;
   font-size: 28px;
 }
+
+/* owner */
+#findWalkerheader{
+  width: 100%;
+  margin: 30px 0px 30px 0px;
+}
+
+#findWalker input[type=text]{
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+}
+
+#findWalker button{
+  margin: 10px 0px 10px 0px;
+}
+
+#map{
+  border-radius: 15px;
+}
+
+.foundWalker{
+  width: 320px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 5px 17px 5px 17px;
+  color: #3F3D56;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 4px 4px lightgrey;
+  border-radius: 15px;
+  margin: 7.5px 0px 7.5px 0px;
+}
+
+.foundWalker a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.profilePicMini{
+  object-fit: cover;
+  width: 47px;
+  height: 47px;
+}
+
+.cropToCircleMini{
+  width: 47px;
+  height: 47px;
+  position: relative;
+  overflow: hidden; 
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+#foundWalker img{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+

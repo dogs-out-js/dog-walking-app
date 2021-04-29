@@ -39,6 +39,7 @@ router.post('/login', (req, res) => {
                 if (bcrypt.compareSync(password, ownerFromDB.password)) {
                     req.session.user = ownerFromDB;
                     res.render('owner/find-walkers', { owner: ownerFromDB });
+                    res.redirect('/owner/find-walkers');
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
