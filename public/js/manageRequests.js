@@ -7,7 +7,17 @@ acceptBtns.forEach(button => {
         // Walker.find()
         //     .then(walker => console.log("walker", walker));
         const action = 'accept';
-        const someId = event.target.parentNode;
+        const someId = event;
         console.log("someId", someId);
+        
     })
 })
+
+//find request
+//change accepted to true;
+
+//const requestId = 
+Request.findByIdAndUpdate(requestId, {accepted: accepted}, {new: true})
+        .then((updatedRequest) => {
+            console.log(updatedRequest);
+        })
