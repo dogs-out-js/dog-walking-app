@@ -3,24 +3,46 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />   
 </head>
 
-<h2>Find a dog walker</h2>
+<div id='findWalker' class="screenSetup centerItems">
 
-{{!-- Show all the available dog walkers --}}
-{{#each walkerList}}
-<a href="/owner/walker/{{id}}">{{username}}</a><br>
-<p>{{price}}</p>
-{{/each}}
+  <div id="findWalkerheader">
+   <h2>Dog walkers in your area</h2>
+  </div>
 
+  <form action="/owner/find-walkers" method="POST">
 
-<nav>
-    <a href="/owner/find-walkers">Search</a>
-    <a href="">Walks</a>
-    <a href="/owner/profile">My Profile</a>
-</nav>
+      <label for="city"></label>
+      <input type="text" name="city" id="city" value="{{city}}" placeholder="city">
 
 
 
-<div id="map" style="width: 100vw; height: 110vh;"></div>
+      <label for="district"></label>
+      <input type="text" name="district" id="district" value="{{district}}" placeholder="district">
+
+    <button class="btn" type="submit">Find walkers</button>
+  </form>
+
+  <div id="map" style="width: 100vw; height: 30vh;"></div>
+
+  {{!-- Show all the available dog walkers --}}
+  {{#each walkerList}}
+  <div class="foundWalker">
+    <div class="cropToCircleMini">
+      <img class="profilePicMini" src="{{walkerImg}}" alt="">
+    </div>
+    
+    <a href="/owner/walker/{{id}}">{{username}}</a><br>
+    <p>{{price}}</p>
+  </div>
+  {{/each}}
+
+  <nav>
+      <a href="/owner/find-walkers">Search</a>
+      <a href="">Walks</a>
+      <a href="/owner/profile">My Profile</a>
+  </nav>
+</div>
+
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiaXJvbm9sYSIsImEiOiJja28xYTN2bzMwNmtsMndzNTg5dHQ1eTd4In0.HUiwiUixDnMOkMwxFVh9TQ';
     const map = new mapboxgl.Map({
@@ -74,5 +96,4 @@ function loadMap(walkers) {
     });
   });
 }
-
 </script>
