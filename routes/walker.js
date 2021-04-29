@@ -124,7 +124,6 @@ router.get('/profile', (req, res, next) => {
 })
 
 
-router.route('../views/owner/find-walkers').get(getWalkers)
 
 router.get('/planned-walks', (req, res, next) => {
     const walkerId = req.session.user._id;
@@ -138,5 +137,7 @@ router.get('/planned-walks', (req, res, next) => {
           })
     
 })
+
+
 
 module.exports = router;
