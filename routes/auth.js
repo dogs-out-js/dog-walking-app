@@ -47,6 +47,7 @@ router.post('/login', (req, res) => {
                 if (bcrypt.compareSync(password, walkerFromDB.password)) {
                   req.session.user = walkerFromDB;
                     res.render('walker/incoming-requests', { walker: walkerFromDB });
+                    res.redirect('/walker/incoming-requests');
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 

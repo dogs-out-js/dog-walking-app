@@ -71,7 +71,7 @@ button {
 button a{
   text-decoration: none;
   color: black;
-  font-size: 18;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -133,4 +133,41 @@ input[type=password] {
 
 #signupChoice a{
   font-size: 18;
+}
+
+.cropToCircle{
+  width: 161px;
+  height: 161px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+.profilePic{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+
+}
+
+.profileBox{
+  width: 235px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 20px 17px 20px 17px;
+  color: #3F3D56;
+  box-shadow: 2px 4px 4px grey;
+  border-radius: 15px;
+}
+
+.bio{
+  text-align: start;
+  margin: 20px 64px 20px 64px;
+}
+
+#walkerDetails h2{
+  font-size: 28px;
 }
