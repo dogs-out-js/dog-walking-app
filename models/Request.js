@@ -16,7 +16,8 @@ const requestSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Walker",
         required: true
-    }
+    },
+    accepted: Boolean
 });
 
 const Request = model("Request", requestSchema);
