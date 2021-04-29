@@ -33,7 +33,6 @@ router.get('/incoming-requests', (req, res, next) => {
         .catch(err => {
             next(err);
           })
-    
 })
 
 router.post('/accept/:id', (req, res, next) => {
@@ -116,7 +115,16 @@ router.get('/profile', (req, res, next) => {
 router.route('../views/owner/find-walkers').get(getWalkers)
 
 router.get('/planned-walks', (req, res, next) => {
-    res.render('walker/planned-walks');
+    const walkerId = req.session.user._id;
+    Request.find({$and: [{sentTo: walkerId},{accepted: true}]})
+        .then((request) => {
+            //console.log(request);
+            res.render('walker/planned-walks', {plannedWalkDetails: request});
+        })
+        .catch(err => {
+            next(err);
+          })
+    
 })
 
 module.exports = router;
