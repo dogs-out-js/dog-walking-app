@@ -1,32 +1,33 @@
 <h2>Edit your profile</h2>
 
-
-<form action="/owner-details/{{owner._id}}/edit" method="POST" enctype="multipart/form-data">
+{{#with currentOwner}}
+<form action="/owner/profile" method="POST" >
+{{!-- enctype="multipart/form-data" --}}
 
 <div>
     <div>
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username" value={{owner.username}}>
+        <input type="text" name="username" id="username" value={{username}}>
     </div>
 
     <div>
         <label for="email">Email: </label>
-        <input type="email" name="email" id="email" value={{owner.email}}>
+        <input type="email" name="email" id="email" value={{email}}>
     </div>
 
     <div>
         <label for="dogBreed">Dog breed: </label>
-        <input type="text" name="dogBreed" id="dogBreed" value={{owner.dogBreed}}>
+        <input type="text" name="dogBreed" id="dogBreed" value={{dogBreed}}>
     </div>
 
     <div>
         <label for="dogName">Dog name: </label>
-        <input type="text" name="dogName" id="dogName" value={{owner.dogName}}>
+        <input type="text" name="dogName" id="dogName" value="{{dogName}}">
     </div>
 
     <div>
         <label for="dogAge">Your dog's age: </label>
-        <input type="text" name="dogAge" id="dogAge" value={{owner.dogAge}}>
+        <input type="text" name="dogAge" id="dogAge" value="{{dogAge}}">
     </div>
 
     <div>
@@ -44,18 +45,30 @@
     </div>
     <div>
         <label for="dogsSpecialNeeds">Describe your doggo's special needs: </label>
-        <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities">
+        <input type="text" name="dogsSpecialNeeds" id="dogsSpecialNeeds" placeholder="e.g. any kind of training, character, favourite activities" value="{{dogsSpecialNeeds}}">
     </div>
 
     <div>
+<<<<<<< HEAD
         <label for="address">Address: </label>
         <input type="text" name="address" id="address" value="{{owner.address}}">
 
     </div>
 
+=======
+        <label for="location">City: </label>
+        <input type="text" name="city" id="city" value="{{location.city}}">
+
+    </div>
+
+    <div>
+        <label for="location">Street: </label>
+        <input type="text" name="street" id="street" value="{{location.street}}">
+
+    </div>
+>>>>>>> ef957d7da80874806ab5cbb9cffa3c63d8f31422
 </div>
 
     <button class="btn" type="submit">Update profile</button>
-
 </form>
-
+{{/with}}

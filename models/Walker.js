@@ -45,14 +45,14 @@ const walkerSchema = new Schema({
   //andere optie is push notificatie bij een walker, getriggert nadat request word aangemaakt(voor als gebruker al online is), software: pusher?.
 });
 
-// walkerSchema.pre('save', async function(next) {
-//   const loc = await geocoder.geocode(this.address);
-//   this.location = {
-//     type: 'Point',
-//     coordinates: [loc[0].longitude, loc[0].latitude],
-//     formattedAddress: loc[0].formattedAddress
-//   };
-// })
+walkerSchema.pre('save', async function(next) {
+  const loc = await geocoder.geocode(this.address);
+  this.location = {
+    type: 'Point',
+    coordinates: [loc[0].longitude, loc[0].latitude],
+    formattedAddress: loc[0].formattedAddress
+  };
+})
 
 const Walker = mongoose.model("Walker", walkerSchema);
 

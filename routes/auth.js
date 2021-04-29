@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
                 // username exists as an walker
                 if (bcrypt.compareSync(password, walkerFromDB.password)) {
                   req.session.user = walkerFromDB;
-                    res.render('received-requests', { walker: walkerFromDB });
+                    res.render('walker/incoming-requests', { walker: walkerFromDB });
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -62,9 +62,8 @@ router.post('/login', (req, res) => {
 router.post('/signupOwner', (req, res) => {
     //console.log("Owner signup")
     const { username, password } = req.body;
-    console.log("username and password", username, password);
+    //console.log("username and password", username, password);
     if (password.length < 8) {
-
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
     }
     if (username === '') {
@@ -79,11 +78,12 @@ router.post('/signupOwner', (req, res) => {
         } else {
           const salt = bcrypt.genSaltSync();
           const hash = bcrypt.hashSync(password, salt)
-          Owner.create({ username: username, password: hash, dogAge: "", dogSize: "", dogSpecialNeeds: "", dogImg: "" })
+          Owner.create({ username: username, password: hash})
+  
             .then(ownerFromDB => {
               console.log("ownerFromDB",ownerFromDB);
               
-              res.redirect('/owner/find-walkers');
+              res.redirect('login');
             })
         }
       })
@@ -115,7 +115,7 @@ router.post('/signupOwner', (req, res) => {
           Walker.create({ username: username, password: hash, email: email, walkerExperience: "", walkerImg: "", price: ""})
             .then(walkerFromDB => {
               //console.log(walkerFromDB);
-              res.render('received-requests', {walkerFromDB});
+              res.render('login', {walkerFromDB});
             })
         }
       })
