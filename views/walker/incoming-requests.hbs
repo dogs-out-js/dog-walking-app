@@ -13,11 +13,7 @@
                         </form> --}}
 
     <form action="/walker/accept/{{_id}}" method="POST"></form>
-        <div>
-
-            <input type="text" name="_id" id="_id" value="{{_id}}">
-        </div>
-        <button class="btn" type="submit">Accept</button>
+            <input class="accept-btn" type="submit" name="accept" value="Accept">
     </form>
 
     <button class='accept'><a href="/walker/incoming-requests/{{_id}}/accept">Accept</a></button>
