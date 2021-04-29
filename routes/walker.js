@@ -21,15 +21,27 @@ router.get('/owner/:id', (req, res, next) => {
           })
 })
 
-
-
 router.get('/incoming-requests', (req, res, next) => {
     const walkerId = req.session.user._id;
     Request.find({$and: [{sentTo: walkerId},{accepted: false}]})
+        .populate('sentBy')
         .then((request) => {
-            //console.log(request);
+            console.log(request);
+            const {username} = request;
+            
             res.render('walker/incoming-requests', {requestDetails: request});
         })
+
+        // .then((request) => {
+        //     for(let i = 0; i<request.length; i++){
+        //     return Owner.findById(request[i].sentBy) 
+        //         .populate('username')
+        //         .then(owner => {
+        //             console.log(owner);
+        //             res.render('walker/incoming-requests', {requestDetails: request});
+        //         })
+        //      }
+        // })
         .catch(err => {
             next(err);
           })
