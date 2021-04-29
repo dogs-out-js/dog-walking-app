@@ -1,6 +1,7 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
+// require('dotenv').config({path: '/config/.env'})
 
 // ℹ️ Connects to the database
 require("./db");
@@ -25,6 +26,9 @@ const MongoStore = require('connect-mongo')(session);
 const mongoose = require('./db/index');
 const { urlencoded } = require("express");
 
+//app.use(cors());
+app.use(express.json());
+
 app.use(
   session({
     secret: 'keyboard cat',
@@ -33,6 +37,9 @@ app.use(
     resave: true,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
+      collection: 'session',
+      url: process.env.MONGODB_URI,
+      adapter: 'connect-mongo'
     })
   })
 )
