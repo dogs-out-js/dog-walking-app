@@ -17,11 +17,29 @@ router.get('/owner/:id', (req, res, next) => {
           })
 })
 
-router.post('/incoming-requests/accept', (req, res, next) => {
+
+// Request.findByIdAndUpdate(requestId, {accepted: accepted}, {new: true})
+//         .then((updatedRequest) => {
+//             console.log(updatedRequest);
+//         })
+
+
+
+router.post('/accept/:id', (req, res, next) => {
    // console.log(req.body);
     //Request.findOneAndUpdate
-    res.render(incoming-requests);
+    const reqId = req.params.id;
+    console.log("reqId",reqId);
+    Request.findByIdAndUpdate(reqId, {accepted: true}, {new: true})
+        .then((updatedRequest) => {
+            console.log(updatedRequest);
+        })
+    //res.render(incoming-requests);
 })
+
+router.get('/accept/:id', (req, res, next) => {
+    res.redirect('/walker/incoming-requests');
+}) 
 
 router.get('/incoming-requests/accept', (req, res, next) => {
     console.log(res.body);
@@ -35,8 +53,7 @@ router.post('/incoming-requests/reject', (req, res, next) => {
 
 router.get('/incoming-requests', (req, res, next) => {
     const walkerId = req.session.user._id;
-    console.log("req body", req.body._id)
-    Request.find({sentTo: walkerId})
+    Request.find({$and: [{sentTo: walkerId},{accepted: false}]})
         .then((request) => {
             //console.log(request);
             res.render('walker/incoming-requests', {requestDetails: request});

@@ -8,17 +8,18 @@
     <p>Time: {{time}}</p>
     <p>Duration: {{duration}} minutes</p>
 
-    {{!-- <form action="/accept/{{this._id}}/{{../_id}}" method="post">
-                            <input class="accept-btn" type="submit"  name="accept" value="Accept" />
-                        </form> --}}
 
-    <form action="/walker/accept/{{_id}}" method="POST"></form>
-            <input class="accept-btn" type="submit" name="accept" value="Accept">
+    <form action="/walker/accept/{{_id}}" method="POST">
+        <input class="accept-btn" type="submit" name="accept" value="Accept">
     </form>
 
-    <button class='accept'><a href="/walker/incoming-requests/{{_id}}/accept">Accept</a></button>
+     <form action="/walker/reject/{{_id}}" method="POST">
+        <input class="reject-btn" type="submit" name="accept" value="Reject">
+    </form>
 
-    <button class='reject'>Reject</button>
+    {{!-- <button class='accept'><a href="/walker/incoming-requests/{{_id}}/accept">Accept</a></button> --}}
+
+    {{!-- <button class='reject'>Reject</button> --}}
 
 {{/each}}
 
