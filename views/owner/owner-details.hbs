@@ -4,6 +4,9 @@
     {{#with currentOwner}}
     <div>
         <img src="{{dogImg}}" alt="photo for {{username}}">
+        <br>
+        <a href="/owner/edit">Edit your profile</a>
+
         <h2>{{username}}</h2>
         
         <p><strong> Your dog's name: </strong>{{dogName}}</p>
@@ -16,10 +19,15 @@
             <p><strong> Breed:</strong> {{dogBreed}}</p>
             <p><strong> Your dog's age:</strong> {{dogAge}}</p>
             <p><strong> Size of your dog: </strong>{{dogSize}}</p>
-            <p><strong> Special needs: </strong>{{dogsSpecialNeeds}}</p>
+            <p><strong> Special needs: </strong>{{{dogsSpecialNeeds}}}</p>
         </div>
     </div>
     {{/with}}
 </div>
 
-<a href="/owner/edit">Edit your profile</a>
+<nav>
+    <a href="/owner/find-walkers">Search</a>
+    <a href="">Walks</a>
+    <a href="/owner/profile">My Profile</a>
+</nav>
+
