@@ -19,7 +19,8 @@ router.post('/received-requests/:id', (req, res, next) => {
         time: time,
         duration: duration,
         sentBy: ownerId,
-        sentTo: walkerId
+        sentTo: walkerId,
+        accepted: false
     })
     .then((request) => {
         //res.redirect('request-succesful');
