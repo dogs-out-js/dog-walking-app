@@ -38,8 +38,7 @@ router.get('/request/:id', (req, res, next) => {
           })
 })
 
-router.get('/edit', (req, res, next) => {
-    
+router.get('/edit', (req, res, next) => {  
     Owner.findById(req.session.user._id)
         .then(currentOwner => {
             console.log(currentOwner);

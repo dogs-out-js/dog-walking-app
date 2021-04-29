@@ -3,22 +3,18 @@
 {{#each requestDetails}}
     <h3>You received one walking request from {{sentBy}} </h2>
 
-    {{_id}}
     <p>Date: {{date}}</p>
     <p>Time: {{time}}</p>
     <p>Duration: {{duration}} minutes</p>
 
-    {{!-- <form action="/walker/planned-walks" method="POST"></form>
-        <div>
 
-            <input type="text" name="_id" id="_id" value="{{_id}}">
-        </div>
-        <button class="btn" type="submit">Accept</button>
-    </form> --}}
+    <form action="/walker/accept/{{_id}}" method="POST">
+        <input class="accept-btn" type="submit" name="accept" value="Accept">
+    </form>
 
-    <button id='accept'><a href="/walker/incoming-requests/accept">Accept</a></button>
-
-    <button id='reject'>Reject</button>
+     <form action="/walker/reject/{{_id}}" method="POST">
+        <input class="reject-btn" type="submit" name="accept" value="Reject">
+    </form>
 
 {{/each}}
 

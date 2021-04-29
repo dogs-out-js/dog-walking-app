@@ -21,26 +21,11 @@ router.get('/owner/:id', (req, res, next) => {
           })
 })
 
-router.post('/incoming-requests/accept', (req, res, next) => {
-   // console.log(req.body);
-    //Request.findOneAndUpdate
-    res.render(incoming-requests);
-})
-
-router.get('/incoming-requests/accept', (req, res, next) => {
-    console.log(res.body);
-})
-
-router.post('/incoming-requests/reject', (req, res, next) => {
-    //console.log(req.body);
-    Request.findOneAndDelete({_id: req.body})
-})
 
 
 router.get('/incoming-requests', (req, res, next) => {
     const walkerId = req.session.user._id;
-    console.log("req body", req.body._id)
-    Request.find({sentTo: walkerId})
+    Request.find({$and: [{sentTo: walkerId},{accepted: false}]})
         .then((request) => {
             //console.log(request);
             res.render('walker/incoming-requests', {requestDetails: request});
@@ -50,6 +35,36 @@ router.get('/incoming-requests', (req, res, next) => {
           })
     
 })
+
+router.post('/accept/:id', (req, res, next) => {
+    Request.findByIdAndUpdate(reqId, {accepted: true}, {new: true})
+        .then(() => {
+            res.redirect("/walker/incoming-requests");
+        })
+        .catch(err => {
+        next(err);
+        })
+})
+
+router.get('/accept/:id', (req, res, next) => {
+    res.redirect('/walker/incoming-requests');
+}) 
+
+router.post('/reject/:id', (req, res, next) => {
+     const reqId = req.params.id;
+     console.log("reqId",reqId);
+     Request.findByIdAndDelete(reqId)
+         .then(() => {
+             res.redirect("/walker/incoming-requests");
+         })
+         .catch(err => {
+            next(err);
+          })
+ })
+ 
+ router.get('/reject/:id', (req, res, next) => {
+     res.redirect('/walker/incoming-requests');
+ }) 
 
 router.get('/edit', (req, res, next) => {
     
@@ -63,7 +78,7 @@ router.get('/edit', (req, res, next) => {
 
 router.post('/profile', (req, res, next) => {
     let currentWalker = req.session.user;
-    const {username, email, walkerExperience, walkerImg, price, street, city} = req.body;
+    const {username, email, walkerExperience, walkerImg, price, location} = req.body;
     
     Walker.findByIdAndUpdate(req.session.user._id, {
         username: req.body.username, 
@@ -71,11 +86,7 @@ router.post('/profile', (req, res, next) => {
         walkerExperience: walkerExperience, 
         walkerImg: walkerImg, 
         price: price, 
-        location: 
-            {
-            street,
-            city
-            }
+        location: location
         }, {new: true})
         .then((updatedWalker) => {
             res.redirect('/walker/profile');

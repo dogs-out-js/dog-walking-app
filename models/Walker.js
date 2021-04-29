@@ -23,6 +23,7 @@ const walkerSchema = new Schema({
   walkerImg: String,
   price: String,
 
+
   address: {
     type: String,
     required: [true, 'Please add an address']
