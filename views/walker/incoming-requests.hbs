@@ -1,4 +1,16 @@
-<h2>incoming requests</h2>
+<h2>My incoming walk requests</h2>
+
+{{#each requestDetails}}
+<h3>You received one walking request from {{sentBy}} </h2>
+
+
+<p>Date: {{date}}</p>
+<p>Time: {{time}}</p>
+<p>Duration: {{duration}} minutes</p>
+
+<button>Accept</button> <button>Reject</button>
+
+{{/each}}
 
 <nav>
     <a href="/walker/incoming-requests">Walks</a>
