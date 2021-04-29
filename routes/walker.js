@@ -63,8 +63,20 @@ router.get('/edit', (req, res, next) => {
 
 router.post('/profile', (req, res, next) => {
     let currentWalker = req.session.user;
-    const {username, email, walkerExperience, walkerImg, price} = req.body;
-    Walker.findByIdAndUpdate(req.session.user._id, {username: req.body.username, email: email, walkerExperience: walkerExperience, walkerImg: walkerImg, price: price}, {new: true})
+    const {username, email, walkerExperience, walkerImg, price, street, city} = req.body;
+    
+    Walker.findByIdAndUpdate(req.session.user._id, {
+        username: req.body.username, 
+        email: email, 
+        walkerExperience: walkerExperience, 
+        walkerImg: walkerImg, 
+        price: price, 
+        location: 
+            {
+            street,
+            city
+            }
+        }, {new: true})
         .then((updatedWalker) => {
             res.redirect('/walker/profile');
         })
@@ -76,6 +88,7 @@ router.post('/profile', (req, res, next) => {
 router.get('/profile', (req, res, next) => {
     Walker.findById(req.session.user._id)
     .then(currentUser => {
+        console.log(currentUser);
         res.render('walker/profile', {currentUser})
     })
     .catch(err => {

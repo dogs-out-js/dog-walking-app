@@ -9,9 +9,20 @@
 </div>
 
 <div>
-    <p>Experience: {{{walkerExperience}}}</p>
+    <p>Experience: "{{walkerExperience}}"</p>
 </div>
 {{/with}}
+
+{{#with currentUser.location}}
+<div>
+    <p>City: {{city}}</p>
+</div>
+
+<div>
+    <p>Street: {{street}}</p>
+</div>
+{{/with}}
+
 
 
 <a href="/walker/edit">Edit</a>
