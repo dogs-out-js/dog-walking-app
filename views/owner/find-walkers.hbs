@@ -26,7 +26,53 @@
     const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
+    center: [13.4, 52.52], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
+// Fetch walkers from API
+async function getWalkers() {
+  const res = await fetch('/views/owner/find-walkers');
+  const data = await res.json();
+
+  const walkers = data.data.map(walker => {
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [
+          store.location.coordinates[0],
+          store.location.coordinates[1]
+        ]
+      },
+    };
+  });
+
+  loadMap(walkers);
+}
+
+// Load map with walkers
+function loadMap(walkers) {
+  map.on('load', function() {
+    map.addLayer({
+      id: 'points',
+      type: 'symbol',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: walkers
+        }
+      },
+      layout: {
+        'icon-image': '{icon}-15',
+        'icon-size': 1.5,
+        'text-field': '{walkerId}',
+        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+        'text-offset': [0, 0.9],
+        'text-anchor': 'top'
+      }
+    });
+  });
+}
+
 </script>
