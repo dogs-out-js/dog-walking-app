@@ -3,7 +3,6 @@
 {{#each requestDetails}}
     <h3>You received one walking request from {{sentBy}} </h2>
 
-    {{_id}}
     <p>Date: {{date}}</p>
     <p>Time: {{time}}</p>
     <p>Duration: {{duration}} minutes</p>
@@ -16,10 +15,6 @@
      <form action="/walker/reject/{{_id}}" method="POST">
         <input class="reject-btn" type="submit" name="accept" value="Reject">
     </form>
-
-    {{!-- <button class='accept'><a href="/walker/incoming-requests/{{_id}}/accept">Accept</a></button> --}}
-
-    {{!-- <button class='reject'>Reject</button> --}}
 
 {{/each}}
 

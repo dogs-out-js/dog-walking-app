@@ -18,38 +18,6 @@ router.get('/owner/:id', (req, res, next) => {
 })
 
 
-// Request.findByIdAndUpdate(requestId, {accepted: accepted}, {new: true})
-//         .then((updatedRequest) => {
-//             console.log(updatedRequest);
-//         })
-
-
-
-router.post('/accept/:id', (req, res, next) => {
-   // console.log(req.body);
-    //Request.findOneAndUpdate
-    const reqId = req.params.id;
-    console.log("reqId",reqId);
-    Request.findByIdAndUpdate(reqId, {accepted: true}, {new: true})
-        .then((updatedRequest) => {
-            console.log(updatedRequest);
-        })
-    //res.render(incoming-requests);
-})
-
-router.get('/accept/:id', (req, res, next) => {
-    res.redirect('/walker/incoming-requests');
-}) 
-
-router.get('/incoming-requests/accept', (req, res, next) => {
-    console.log(res.body);
-})
-
-router.post('/incoming-requests/reject', (req, res, next) => {
-    //console.log(req.body);
-    Request.findOneAndDelete({_id: req.body})
-})
-
 
 router.get('/incoming-requests', (req, res, next) => {
     const walkerId = req.session.user._id;
@@ -63,6 +31,36 @@ router.get('/incoming-requests', (req, res, next) => {
           })
     
 })
+
+router.post('/accept/:id', (req, res, next) => {
+    Request.findByIdAndUpdate(reqId, {accepted: true}, {new: true})
+        .then(() => {
+            res.redirect("/walker/incoming-requests");
+        })
+        .catch(err => {
+        next(err);
+        })
+})
+
+router.get('/accept/:id', (req, res, next) => {
+    res.redirect('/walker/incoming-requests');
+}) 
+
+router.post('/reject/:id', (req, res, next) => {
+     const reqId = req.params.id;
+     console.log("reqId",reqId);
+     Request.findByIdAndDelete(reqId)
+         .then(() => {
+             res.redirect("/walker/incoming-requests");
+         })
+         .catch(err => {
+            next(err);
+          })
+ })
+ 
+ router.get('/reject/:id', (req, res, next) => {
+     res.redirect('/walker/incoming-requests');
+ }) 
 
 router.get('/edit', (req, res, next) => {
     
