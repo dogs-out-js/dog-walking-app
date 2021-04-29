@@ -37,6 +37,10 @@ router.get('/received-requests/:id', (req, res, next) => {
     res.render('received-requests');
 })
 
+router.post('/request-sent', (req, res) =>{
+    res.render('owner/request-sent');
+})
+
 router.get('/request-successful', (req, res, next) => {
     res.render('owner/request-successful');
 })

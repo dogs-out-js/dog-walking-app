@@ -3,18 +3,24 @@ const router = require("express").Router();
 const { Router } = require("express");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
-
-const { getWalkers, addWalker } = require('../controllers/walkers')
-
 const Request = require("../models/Request");
 
-
+// router.get("/walker/owner-page/owner/:id", (req, res)=>{
+//     const ownerId = req.params.id;
+//     Owner.findById(ownerId)
+//         .then (owner =>{
+//             res.render('walker/owner-page', {ownerDetails: owner})
+//         })
+//         .catch(err => {
+//             next(err);
+//           })
+// })
 
 router.get('/owner/:id', (req, res, next) => {
     const ownerId = req.params.id;
     Walker.findById(ownerId)
         .then(owner => {
-            res.render('walker/owner-details', {ownerDetails: owner})
+            res.render('walker/owner-page', {ownerDetails: owner})
         })
         .catch(err => {
             next(err);
@@ -47,7 +53,8 @@ router.get('/incoming-requests', (req, res, next) => {
           })
 })
 
-router.post('/accept/:id', (req, res, next) => {
+router.post('/accept/:id', (req, res) => {
+    const reqId = req.params.id;
     Request.findByIdAndUpdate(reqId, {accepted: true}, {new: true})
         .then(() => {
             res.redirect("/walker/incoming-requests");
@@ -57,7 +64,7 @@ router.post('/accept/:id', (req, res, next) => {
         })
 })
 
-router.get('/accept/:id', (req, res, next) => {
+router.get('/accept/:id', (req, res) => {
     res.redirect('/walker/incoming-requests');
 }) 
 
