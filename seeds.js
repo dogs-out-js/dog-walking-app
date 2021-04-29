@@ -3,7 +3,7 @@ const { getMaxListeners } = require('./app');
 const Owner = require('./models/Owner');
 const Walker = require('./models/Walker');
 
-mongoose.connect('mongodb://localhost/dogs-out', {
+mongoose.connect('mongodb://localhost/dogs-out' || , {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

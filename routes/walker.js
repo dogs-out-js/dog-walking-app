@@ -3,6 +3,7 @@ const router = require("express").Router();
 const { Router } = require("express");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
+const { getWalkers, addWalker } = require('../controllers/walkers')
 
 
 router.get('/owner/:id', (req, res, next) => {
@@ -32,5 +33,8 @@ router.get('/profile', (req, res, next) => {
     res.render('walker/profile', {currentUser});
     
 })
+
+router.route('../views/owner/find-walkers').get(getWalkers).post(addWalker)
+
 
 module.exports = router;
