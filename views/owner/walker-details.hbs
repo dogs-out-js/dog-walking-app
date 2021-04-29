@@ -1,32 +1,45 @@
-<a href="/owner/find-walkers">Go back</a>
+<div id='walkerDetails' class='screenSetup centerItems'>
+    <div >
+        <a  href="/owner/find-walkers"> ⇽ Back</a>
+    </div>
+    
+    <div class="backgroundShape">
+        <img src="/images/bg-rect.svg" alt="background rect">
+    </div>
+    
 
-<h2>Walker details</h2>
+    
 
-{{#with walkerDetails}}
-<div><img src="{{walkerImg}}" alt="walker profile picture"></div>
-<div>
-    <p>Name: {{username}}</p>
+
+
+    {{#with walkerDetails}}
+    <div class='cropToCircle' >
+        <img class='profilePic' src="{{walkerImg}}" alt="walker profile picture">
+    </div>
+
+    <h2>{{username}}</h2>
+
+    <div>
+        <p>{{price}}</p>
+    </div>
+    <div class="profileBox">
+        <div>
+            <p><strong>City:</strong> {{city}}</p>
+        </div>
+
+        <div>
+            <p><strong>District:</strong> {{district}}</p>
+        </div>
+    </div>
+
+    <div class="bio">
+        <h3>Experience</h3>
+        <p>{{walkerExperience}}</p>
+    </div>
+
+
+    <button><a href="/owner/request/{{_id}}">Contact walker</a></button>
+    {{/with}}
+
 </div>
-<div>
-    <p>{{price}}</p>
-</div>
-
-<div>
-    <p>Experience: {{walkerExperience}}</p>
-</div>
-
-
-
-{{!-- {{#with walkerDetails.location}}
-<div>
-    <p>City: {{city}}</p>
-</div>
-
-<div>
-    <p>Street: {{street}}</p>
-</div>
-{{/with}} --}}
-
-<button><a href="/owner/request/{{_id}}">Contact walker</a></button>
-{{/with}}
 
