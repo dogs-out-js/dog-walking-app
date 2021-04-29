@@ -23,7 +23,7 @@ router.get('/incoming-requests', (req, res, next) => {
     Request.find({sentTo: walkerId})
         .then((request) => {
             console.log(request);
-            res.render('walker/incoming-requests', {requestList: request});
+            res.render('walker/incoming-requests', {requestDetails: request});
         })
         .catch(err => {
             next(err);
