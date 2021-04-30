@@ -23,7 +23,6 @@ router.get('/find-walkers', (req, res, next) => {
     console.log(req.body);
     Walker.find({$or: [{city: city},{district: district}]})
         .then(walkers => {
-            console.log("walkers", walkers)
             res.render('owner/find-walkers', {walkerList: walkers})
         })
         .catch(err => {
