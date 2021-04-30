@@ -7,11 +7,20 @@ const Walker = require("../models/Walker");
 
 router.post('/find-walkers', (req, res, next) => {
     const{city, district} = req.body; 
-    res.render('owner/find-walkers');  
+    Walker.find({$or: [{city: city},{district: district}]})
+    .then(walkers => {
+        console.log("walkers", walkers)
+        res.render('owner/find-walkers', {walkerList: walkers})
+    })
+    .catch(err => {
+        next(err);
+      })  
+    // res.render('owner/find-walkers');  
 })
 
 router.get('/find-walkers', (req, res, next) => {
     const{city, district} = req.body; 
+    console.log(req.body);
     Walker.find({$or: [{city: city},{district: district}]})
         .then(walkers => {
             console.log("walkers", walkers)

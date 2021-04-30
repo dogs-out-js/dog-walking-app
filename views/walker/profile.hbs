@@ -11,7 +11,7 @@
     <div class='cropToCircle' >
         <img class='profilePic' src="{{walkerImg}}" alt="walker profile picture">
     </div>
-
+    <br>
     <h2>{{username}}</h2>
 
     <div>
@@ -31,10 +31,11 @@
         <h3>Experience</h3>
         <p>{{walkerExperience}}</p>
     </div>
+    {{/with}}
     <button><a href="/walker/edit">Edit</a></button>
 
     
-    {{/with}}
+    
 
     <nav class="navbar">
         <a href="/walker/incoming-requests">Walk requests</a>
