@@ -39,6 +39,7 @@ router.post('/login', (req, res) => {
                 if (bcrypt.compareSync(password, ownerFromDB.password)) {
                     req.session.user = ownerFromDB;
                     res.render('owner/find-walkers', { owner: ownerFromDB });
+                    res.redirect('/owner/find-walkers');
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -47,6 +48,7 @@ router.post('/login', (req, res) => {
                 if (bcrypt.compareSync(password, walkerFromDB.password)) {
                   req.session.user = walkerFromDB;
                     res.render('walker/incoming-requests', { walker: walkerFromDB });
+                    res.redirect('/walker/incoming-requests');
                   } else {
                     res.render('login', { message: 'Invalid login or password' });
                   } 
@@ -60,9 +62,7 @@ router.post('/login', (req, res) => {
 
 //OWNER signup
 router.post('/signupOwner', (req, res) => {
-    //console.log("Owner signup")
     const { username, password } = req.body;
-    //console.log("username and password", username, password);
     if (password.length < 8) {
       return res.render('signup', { message: 'Your password has to be minimum 8 characters long.' });
     }
@@ -80,9 +80,7 @@ router.post('/signupOwner', (req, res) => {
           const hash = bcrypt.hashSync(password, salt)
           Owner.create({ username: username, password: hash})
   
-            .then(ownerFromDB => {
-              //console.log("ownerFromDB",ownerFromDB);
-              
+            .then(ownerFromDB => {            
               res.redirect('login');
             })
         }
@@ -114,7 +112,6 @@ router.post('/signupOwner', (req, res) => {
           const hash = bcrypt.hashSync(password, salt)
           Walker.create({ username: username, password: hash, email: email, walkerExperience: "", walkerImg: "", price: ""})
             .then(walkerFromDB => {
-              //console.log(walkerFromDB);
               res.render('login', {walkerFromDB});
             })
         }

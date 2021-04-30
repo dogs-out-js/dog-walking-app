@@ -4,13 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 *{
   font-family: 'Karla', 'Montserrat', Arial;
   margin: 0;
   padding: 0;
 }
 body {
-  background-color: white;
+  /* background-color: white; */
   /* width: 375px; */
   /* padding: 50px; */
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
@@ -18,21 +19,22 @@ body {
 
 .screenSetup{
   margin: 0 auto;
-  width: 374px;
+  width: 375px;
+  /* height: 782px; */
   height: 812px;
   border-color: grey;
   border-width: 3px;
   position: relative;
-  //background-color: white;
+  /* background-color: white; */
+  margin-bottom: 30px;
 
-}
+} 
 
 .centerItems{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
 }
 
@@ -46,7 +48,22 @@ h2{
   font-weight: 800;
 }
 
+#signinIndex h1{
+  width: 90%;
+  font-weight: 400px;
+  font-size: 62px;
+  font-family: 'Titan One', cursive;
+  color:  F2777A;
+}
+
+#signinIndex h1:first-of-type{
+  margin-top: 20px;
+}
+#signinMargin{
+  margin-top: 470px;
+}
 #signinIndex h2{
+
   width: 292px;
   margin: 36px 0px 13px 0px;
 }
@@ -56,22 +73,28 @@ h2{
   margin: 13px 0px 13px 0px;
 }
 
+
+
+
 #indexImage{
   width: 274px;
   margin-top: 160px;
   z-index: 1;
 }
+
 button {
   width: 226px;
   height: 50px;
   border-radius: 25px;
   background-color: #F9A826;
   border: none;
+  font-size: 18px;
+  font-weight: 600;
 }
 button a{
   text-decoration: none;
   color: black;
-  font-size: 18;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -91,9 +114,18 @@ h1 {
   color: 15px;
 }
 
+#login h2{
+  width: 90%;
+  margin-top: 100px;
+  color: white;
+  font-weight: 800px;
+  font-size: 32px;
+  font-style: oblique;
+}
+
 #login img:nth-of-type(2){
   width: 348px;
-  margin-top: 160px;
+  margin-top: 34px;
 }
 
 input[type=text] {
@@ -133,4 +165,302 @@ input[type=password] {
 
 #signupChoice a{
   font-size: 18;
+}
+
+/* sign up page */
+#signupImg{
+  width: 100%;
+  margin-top: 90px;
+}
+
+#signup submit{
+  margin-top: 15px;
+}
+
+.cropToCircle{
+  width: 161px;
+  height: 161px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+.profilePic{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.profileBox{
+  width: 235px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 20px 17px 20px 17px;
+  color: #3F3D56;
+  box-shadow: 2px 4px 4px lightgrey;
+  border-radius: 15px;
+}
+
+.orangeText{
+  color: #F9A826;
+  font-size: 24px;
+}
+
+.bio{
+  text-align: start;
+  margin: 20px 64px 20px 64px;
+}
+
+#walkerDetails h2{
+  padding-top: 50px;
+  font-size: 28px;
+  padding-bottom: 5px;
+}
+
+/* owner */
+
+
+#findWalkerheader{
+  width: 100%;
+  margin: 30px 0px 30px 0px;
+}
+
+#findWalker input[type=text]{
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+}
+
+#findWalker button{
+  margin: 10px 0px 10px 0px;
+}
+
+#map{
+  border-radius: 15px;
+}
+
+.foundWalker{
+  
+  width: 320px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 5px 17px 5px 17px;
+  color: #3F3D56;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 4px 4px lightgrey;
+  border-radius: 15px;
+  margin: 7.5px px0 7.5px 0px;
+}
+
+.foundWalker a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.profilePicMini{
+  object-fit: cover;
+  width: 47px;
+  height: 47px;
+}
+
+.cropToCircleMini{
+  width: 47px;
+  height: 47px;
+  position: relative;
+  overflow: hidden; 
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+#foundWalker img{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.centerFlex{
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foundWalkerName{
+  margin: 10px;
+}
+
+.flexNav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.bioOwner{
+  text-align: start;
+  margin: 20px 64px 20px 0px;
+}
+
+.alignLeft{
+  /* margin: 5px 0px 0px 10px; */
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.backPadding{
+  margin: 10px 0px 0px 15px;
+}
+
+#reqImg{
+  width: 241px;
+}
+
+#request input {
+  background-color: white;
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+  border-radius: 10px;
+  height: 35px;
+  width: 60%;
+}
+
+#request input[type=time]{
+
+  width: 30%;
+}
+
+#request select {
+  background-color: white;
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+  border-radius: 10px;
+  height: 35px;
+  width: 30%;
+}
+
+#request img:nth-of-type(2){
+  margin-top: 72px;
+}
+
+#request h2{
+  margin: 42px 0;
+}
+
+#request button{
+  margin-top: 10px;
+}
+
+.centerFlexCol{
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.horFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+#reqBtns input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 150px;
+  margin: 5px 30px 0px 0px;
+}
+
+.screenSetupReq{
+  margin: 0 auto;
+  width: 375px;
+  /* height: 782px; */
+  height: 782px;
+  border-color: grey;
+  border-width: 3px;
+  position: relative;
+  /* background-color: white; */
+  margin-bottom: 30px;
+
+} 
+
+#walks h2{
+  text-align: center;
+  font-size: 24px;
+  margin: 15px 0px;
+}
+
+.walksBox{
+  width: 320px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 5px 17px 5px 17px;
+  color: #3F3D56;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 4px 4px lightgrey;
+  border-radius: 15px;
+  margin: 7.5px 0px 7.5px 0px;
+}
+
+#walks input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 150px;
+  margin: 5px 30px 0px 0px;
+}
+
+.horFlexLeft{
+  display: flex;
+  align-items: center;
+  
+}
+
+#incoming h2{
+  text-align: center;
+  font-size: 24px;
+  margin: 15px 0px;
+}
+
+#incoming input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 130px;
+  margin: 5px 30px 0px 0px;
+}
+
+#editOwner input[type=text]{
+  height: 30px;
+  margin: 5px;
+}
+
+
+.widthpercsign{
+  margin-top: 10px;
+  width: 200px;
+}
+
+.widthperc{
+  margin-top: 5px;
+  width: 200px;
 }
