@@ -1,33 +1,45 @@
-<h1>Owner's profile</h1>
+<div id='walkerDetails' class='screenSetup centerItems'>
+    <div class="alignLeft" >
+        <a class="backPadding" href="/owner/find-walkers"> ⇽ Back</a>
+    </div>
+    
+    <div class="backgroundShape">
+        <img src="/images/bg-rect.svg" alt="background rect">
+    </div>
 
-<div>
     {{#with currentOwner}}
-    <div>
-        <img src="{{dogImg}}" alt="photo for {{username}}">
-        <br>
-        <a href="/owner/edit">Edit your profile</a>
-
-        <h2>{{username}}</h2>
-        
-        <p><strong> Your dog's name: </strong>{{dogName}}</p>
-        <p><strong>Your address: </strong>{{address}}</p>
+    <div class='cropToCircle' >
+        <img class='profilePic' src="{{dogImg}}" alt="walker profile picture">
     </div>
 
-    <div>
+    <button><a href="/owner/edit">Edit my profile</a></button>
 
-        <div>
-            <p><strong> Breed:</strong> {{dogBreed}}</p>
-            <p><strong> Your dog's age:</strong> {{dogAge}}</p>
-            <p><strong> Size of your dog: </strong>{{dogSize}}</p>
-            <p><strong> Special needs: </strong>{{{dogsSpecialNeeds}}}</p>
-        </div>
+    <h2>{{username}}'s dog</h2>
+
+    <div>
+        <p class="orangeText">{{price}}</p>
     </div>
+    <div class="profileBox">
+            <p><strong>Dog name:</strong> {{dogName}}</p>
+            <p><strong>Breed:</strong> {{dogBreed}}</p>
+            <p><strong>Size:</strong> {{dogSize}}</p>
+            <p><strong>Age:</strong> {{dogAge}}</p>
+            {{!-- <p><strong>Good to know:</strong> {{dogsSpecialNeeds}}</p> --}}
+
+    </div>
+
+    <div class="bioOwner">
+        <h3> Special needs</h3>
+        <p>{{dogsSpecialNeeds}}</p>
+    </div>
+
+    
     {{/with}}
-</div>
 
-<nav>
-    <a href="/owner/find-walkers">Search</a>
-    <a href="">Walks</a>
-    <a href="/owner/profile">My Profile</a>
-</nav>
+    <nav class="navbar">
+      <a href="/owner/find-walkers">Search</a>
+      <a href="">Walks</a>
+      <a href="/owner/profile">My Profile</a>
+    </nav>
+</div>
 

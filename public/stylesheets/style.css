@@ -160,8 +160,13 @@ input[type=password] {
   text-align: start;
   padding: 20px 17px 20px 17px;
   color: #3F3D56;
-  box-shadow: 2px 4px 4px grey;
+  box-shadow: 2px 4px 4px lightgrey;
   border-radius: 15px;
+}
+
+.orangeText{
+  color: #F9A826;
+  font-size: 24px;
 }
 
 .bio{
@@ -172,6 +177,7 @@ input[type=password] {
 #walkerDetails h2{
   padding-top: 50px;
   font-size: 28px;
+  padding-bottom: 5px;
 }
 
 /* owner */
@@ -234,4 +240,84 @@ input[type=password] {
   width: 100%;
 }
 
+.centerFlex{
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.foundWalkerName{
+  margin: 10px;
+}
+
+.flexNav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.bioOwner{
+  text-align: start;
+  margin: 20px 64px 20px 0px;
+}
+
+.alignLeft{
+  /* margin: 5px 0px 0px 10px; */
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.backPadding{
+  margin: 10px 0px 0px 15px;
+}
+
+#reqImg{
+  width: 241px;
+}
+
+#request input {
+  background-color: white;
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+  border-radius: 10px;
+  height: 35px;
+  width: 60%;
+}
+
+#request input[type=time]{
+
+  width: 30%;
+}
+
+#request select {
+  background-color: white;
+  margin: 10px 0px 10px 0px;
+  width: 30%;
+  border-radius: 10px;
+  height: 35px;
+  width: 30%;
+}
+
+#request img:nth-of-type(2){
+  margin-top: 72px;
+}
+
+#request h2{
+  margin: 42px 0;
+}
+
+#request button{
+  margin-top: 10px;
+}

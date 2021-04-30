@@ -1,16 +1,23 @@
-<h2>My pending walk requests</h2>
-{{#with requestDetails}}
-<h3>You received one walking request from {{_id}} </h2>
+<div>
+    <h2>Confirm walk request</h2>
+    {{#with requestDetails}}
+    <h3>You received one walking request from {{_id}} </h2>
 
 
-<p>Date: {{date}}</p>
-<p>Time: {{time}}</p>
-<p>Duration: {{duration}} minutes</p>
+    <p>Date: {{date}}</p>
+    <p>Time: {{time}}</p>
+    <p>Duration: {{duration}} minutes</p>
 
-<button>Accept</button> <button>Reject</button>
+    <button>Accept</button> <button>Reject</button>
 
-{{/with}}
+    {{/with}}
 
+    <nav class="navbar">
+      <a href="/owner/find-walkers">Search</a>
+      <a href="">Walks</a>
+      <a href="/owner/profile">My Profile</a>
+    </nav>
+</div>
 {{!-- <nav>
     <a href="walker/received-requests">Walks</a>
     <a href="/walker/profile">My Profile</a>
