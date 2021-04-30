@@ -63,6 +63,7 @@ router.get('/edit', (req, res, next) => {
 router.post('/profile', uploader.single('photo'), (req, res, next) => {
     let currentOwner = req.session.user;
     const {username, email, dogName, dogBreed, dogAge, dogSize, dogsSpecialNeeds, dogImg, city, district} = req.body;
+
     
     const imgPath = req.file.path;
     const imgName = req.file.originalname;
