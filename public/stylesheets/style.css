@@ -4,13 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 *{
   font-family: 'Karla', 'Montserrat', Arial;
   margin: 0;
   padding: 0;
 }
 body {
-  background-color: white;
+  /* background-color: white; */
   /* width: 375px; */
   /* padding: 50px; */
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
@@ -18,21 +19,22 @@ body {
 
 .screenSetup{
   margin: 0 auto;
-  width: 374px;
+  width: 375px;
+  /* height: 782px; */
   height: 812px;
   border-color: grey;
   border-width: 3px;
   position: relative;
-  //background-color: white;
+  /* background-color: white; */
+  margin-bottom: 30px;
 
-}
+} 
 
 .centerItems{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
 }
 
@@ -46,7 +48,22 @@ h2{
   font-weight: 800;
 }
 
+#signinIndex h1{
+  width: 90%;
+  font-weight: 400px;
+  font-size: 62px;
+  font-family: 'Titan One', cursive;
+  color:  F2777A;
+}
+
+#signinIndex h1:first-of-type{
+  margin-top: 20px;
+}
+#signinMargin{
+  margin-top: 470px;
+}
 #signinIndex h2{
+
   width: 292px;
   margin: 36px 0px 13px 0px;
 }
@@ -56,11 +73,15 @@ h2{
   margin: 13px 0px 13px 0px;
 }
 
+
+
+
 #indexImage{
   width: 274px;
   margin-top: 160px;
   z-index: 1;
 }
+
 button {
   width: 226px;
   height: 50px;
@@ -93,9 +114,18 @@ h1 {
   color: 15px;
 }
 
+#login h2{
+  width: 90%;
+  margin-top: 100px;
+  color: white;
+  font-weight: 800px;
+  font-size: 32px;
+  font-style: oblique;
+}
+
 #login img:nth-of-type(2){
   width: 348px;
-  margin-top: 160px;
+  margin-top: 34px;
 }
 
 input[type=text] {
@@ -135,6 +165,16 @@ input[type=password] {
 
 #signupChoice a{
   font-size: 18;
+}
+
+/* sign up page */
+#signupImg{
+  width: 100%;
+  margin-top: 90px;
+}
+
+#signup submit{
+  margin-top: 15px;
 }
 
 .cropToCircle{
@@ -321,3 +361,94 @@ input[type=password] {
 #request button{
   margin-top: 10px;
 }
+
+.centerFlexCol{
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.horFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+#reqBtns input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 150px;
+  margin: 5px 30px 0px 0px;
+}
+
+.screenSetupReq{
+  margin: 0 auto;
+  width: 375px;
+  /* height: 782px; */
+  height: 782px;
+  border-color: grey;
+  border-width: 3px;
+  position: relative;
+  /* background-color: white; */
+  margin-bottom: 30px;
+
+} 
+
+#walks h2{
+  text-align: center;
+  font-size: 24px;
+  margin: 15px 0px;
+}
+
+.walksBox{
+  width: 320px;
+  background-color: white;
+  font-size: 18px;
+  text-align: start;
+  padding: 5px 17px 5px 17px;
+  color: #3F3D56;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 4px 4px lightgrey;
+  border-radius: 15px;
+  margin: 7.5px 0px 7.5px 0px;
+}
+
+#walks input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 150px;
+  margin: 5px 30px 0px 0px;
+}
+
+.horFlexLeft{
+  display: flex;
+  align-items: center;
+  
+}
+
+#incoming h2{
+  text-align: center;
+  font-size: 24px;
+  margin: 15px 0px;
+}
+
+#incoming input{
+  background-color: #F9A826;
+  border: none;
+  border-radius:10px;
+  height: 40px;
+  width: 130px;
+  margin: 5px 30px 0px 0px;
+}
+
+#editOwner input[type=text]{
+  height: 30px;
+  margin: 5px;
+}
+
+
