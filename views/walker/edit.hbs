@@ -1,57 +1,64 @@
-<h2>Edit your walker page</h2>
+<div id="editOwner" class="setupScreen ">
+    <div class="alignLeft">
+        <a class="backPadding" href="/walker/profile"> ⇽ Back</a>
+    </div>
+<h2>Edit your profile</h2>
 
 {{#with currentWalker}}
 <form action="/walker/profile" method="POST" >
 {{!-- enctype="multipart/form-data" --}}
 
 <div>
-
-    <div>
+        <div>
         <label for="walkerImg">Your profile photo: </label>
-        <input type="file" name="photo">
-    </div>
+        <input class="smallMargin" type="file" name="photo">
+        </div>
+        <br>
 
-    <div>
+        <div>
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username" value={{username}}>
-    </div>
+        <input class="smallMargin" type="text" name="username" id="username" value={{username}}>
+        </div>
+        <br>
 
-    <div>
+        <div>
         <label for="email">Email: </label>
         <input type="email" name="email" id="email" value={{email}}>
-    </div>
+        </div>
+        <br>
 
-    <div>
+        <div>
         <label for="walkerExperience">Experience: </label>
-        <input type="text" name="walkerExperience" id="walkerExperience" value='{{walkerExperience}}'>
-    </div>
+        <input class="smallMargin" type="text" name="walkerExperience" id="walkerExperience" value='{{walkerExperience}}'>
+        </div>
+        <br>
 
-    <div>
+        <div>
         <label for="price">Price: </label>
         <input type="text" name="price" id="price" value="{{price}}">
-    </div>
+        </div>
 
-     <div>
+        <div>
         <label for="city">City: </label>
         <input type="text" name="city" id="city" value="{{city}}">
-    </div>
+        </div>
 
-    <div>
+        <div>
         <label for="district">District: </label>
-        <input type="text" name="district" id="district" value="{{city}}">
-    </div>
-
-
-
-   
+        <input type="text" name="district" id="district" value="{{district}}">
+        </div>
 </div>
 
     <button class="btn" type="submit">Update profile</button>
+        <div class="alignLeft">
+        <a class="backPadding" href="/walker/profile">Cancel</a>
+    </div>
 </form>
 {{/with}}
 
-<nav>
+<nav class="navbar">
     <a href="/walker/incoming-requests">Walk requests</a>
     <a href="/walker/planned-walks">Planned walks</a>
     <a href="/walker/profile">My Profile</a>
 </nav>
+</div>

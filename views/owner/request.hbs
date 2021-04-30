@@ -1,26 +1,36 @@
-{{#with sendToInfo}}
-<div>
-    <img src="/images/undraw_passing_by_gqfk.svg" alt="">
+<div id='request' class="screenSetup centerItems">
+    <img class='backgroundShape' src="/images/bg-shape-medium.svg" alt="background shape">
+    {{#with sendToInfo}}
+
+    <img id="reqImg" src="/images/undraw_passing_by_gqfk.svg" alt="">
+
+    <h2>When do you need a dog walker?</h2>
+
+
+    <form action="/request/received-requests/{{_id}}" method="POST">
+        <label for="date"></label>
+        <input type="date" name="date" id="date" placeholder="date">
+        <br>
+        <label for="time"></label>
+        <input type="time" name="time" id="time" placeholder="time">
+
+        <label for="duration"></label>
+        <select id="duration" name="duration">
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">1 hour</option>
+            <option value="90">1.5 hour</option>
+            <option value="120">2 hours</option>
+        </select>
+
+    <button type="submit">Send walk request</button>
+    </form>
+    {{/with}}
+    <nav class="navbar">
+      <a href="/owner/find-walkers">Search</a>
+      <a href="">Walks</a>
+      <a href="/owner/profile">My Profile</a>
+    </nav>
 </div>
-<h2>Request</h2>
 
-<form action="/request/request-sent" method="POST">
-    <label for="date">Date</label>
-    <input type="date" name="date" id="date">
-
-    <label for="time">Time</label>
-    <input type="time" name="time" id="time">
-
-    <label for="duration">Duration:</label>
-    <select id="duration" name="duration">
-        <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">1 hour</option>
-        <option value="90">1.5 hour</option>
-        <option value="120">2 hours</option>
-    </select>
-
-  <button type="submit">Send walk request</button>
-</form>
-{{/with}}

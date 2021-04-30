@@ -1,26 +1,32 @@
-<h2>My incoming walk requests</h2>
+<div id="incoming" class="screenSetup centerItems">
+    <h2>My pending walk requests</h2>
+       
+            {{#each requestDetails}}
+         <div class="walksBox">
+            <div class="horFlexLeft">
+                <img class="profilePicMini" src="{{sentBy.dogImg}}" alt="">
+                <h3>Walk <a href="/walker/owner-details">{{sentBy.username}}</a>'s dog </h2>
+            </div>
 
-{{#each requestDetails}}
-    <h3>Can you walk {{sentBy.username}}'s dog?</h>
+           <p>on {{date}} at {{time}} for {{duration}} minutes.</p> 
+            <div class="horFlex">
+            <form action="/walker/accept/{{_id}}" method="POST">
+                <input class="accept-btn" type="submit" name="accept" value="Accept">
+            </form>
+            <form action="/walker/reject/{{_id}}" method="POST">
+                <input class="reject-btn" type="submit" name="accept" value="Reject">
+            </form>
+            </div>
+        </div>
+            {{/each}}
+        
+        
 
-    <p>Date: {{date}}</p>
-    <p>Time: {{time}}</p>
-    <p>Duration: {{duration}} minutes</p>
+    <nav class="navbar">
+        <a href="/walker/incoming-requests">Walk requests</a>
+        <a href="/walker/planned-walks">Planned walks</a>
+        <a href="/walker/profile">My Profile</a>
+    </nav>
+</div>
 
 
-    <form action="/walker/accept/{{_id}}" method="POST">
-        <input class="accept-btn" type="submit" name="accept" value="Accept">
-    </form>
-
-     <form action="/walker/reject/{{_id}}" method="POST">
-        <input class="reject-btn" type="submit" name="accept" value="Reject">
-    </form>
-
-{{/each}}
-
-<nav>
-    <a href="/walker/incoming-requests">Walk requests</a>
-    <a href="/walker/planned-walks">Planned walks</a>
-    <a href="/walker/profile">My Profile</a>
-</nav>
-<script src='/js/manageRequests.js'></script>
