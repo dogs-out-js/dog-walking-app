@@ -4,6 +4,8 @@ const { Router } = require("express");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
 const Request = require("../models/Request");
+const { uploader, cloudinary } = require("../config/cloudinary");
+
 
 // router.get("/walker/owner-page/owner/:id", (req, res)=>{
 //     const ownerId = req.params.id;
@@ -79,15 +81,22 @@ router.get('/edit', (req, res, next) => {
         })
 })
 
-router.post('/profile', (req, res, next) => {
+router.post('/profile', uploader.single('photo'), (req, res, next) => {
     let currentWalker = req.session.user;
     const {username, email, walkerExperience, walkerImg, price, city, district} = req.body;
     
+    const imgPath = req.file.path;
+    const imgName = req.file.originalname;
+    const publicId = req.file.filename;
+
     Walker.findByIdAndUpdate(req.session.user._id, {
         username: req.body.username, 
         email: email, 
         walkerExperience: walkerExperience, 
         walkerImg: walkerImg, 
+        imgPath: imgPath,
+        imgName: imgName,
+        publicId: publicId,
         price: price, 
         city: city,
         district: district
