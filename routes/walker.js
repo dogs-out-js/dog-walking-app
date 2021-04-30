@@ -127,8 +127,15 @@ router.get('/planned-walks', (req, res, next) => {
     
 })
 
-router.get('/owner-details', (req, res, next) => {
-    res.render('walker/owner-details');
+router.get('/owner-details/:id', (req, res, next) => {
+    const ownerId = req.params.id;
+    Owner.findById(ownerId)
+        .then(owner => {
+            res.render('walker/owner-details', {ownerDetails: owner});
+        })
+        .catch(err => {
+            next(err);
+          })
 })
 
 
