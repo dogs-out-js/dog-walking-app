@@ -1,0 +1,23 @@
+<div>
+    <h1>{{owner}} sent you a request to walk their dog.</h1>
+    {{#with owner}}
+    <div>
+        <img src="{{dogImg}}" alt="photo for {{username}}">
+        <br>
+        <h2>{{username}}</h2>
+        
+        <p><strong> Their dog's name: </strong>{{dogName}}</p>
+        <p><strong>Their address: </strong>{{address}}</p>
+    </div>
+
+    <div>
+
+        <div>
+            <p><strong> Breed:</strong> {{dogBreed}}</p>
+            <p><strong> Their dog's age:</strong> {{dogAge}}</p>
+            <p><strong> Size of their dog: </strong>{{dogSize}}</p>
+            <p><strong> Dog's special needs: </strong>{{{dogsSpecialNeeds}}}</p>
+        </div>
+    </div>
+    {{/with}}
+</div>

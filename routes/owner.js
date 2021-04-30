@@ -66,7 +66,6 @@ router.get('/profile', (req, res, next) => {
       })  
 })
 
-//router.route('../views/walker/edit').post(addWalkers)
 
 
 module.exports = router;

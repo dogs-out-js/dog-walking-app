@@ -13,7 +13,11 @@
         <label for="password"></label>
         <input type="password" name="password" id="password" placeholder="password" required>
         <button type="submit">Create new account</button>
+        
     </form>
+    <div class="widthperc">
+    <a href="/login">Already have an account? Click here to log in</a>
+    </div>
     {{#if message}}
         <p style="color: red">{{message}}</p>   
     {{/if}}
