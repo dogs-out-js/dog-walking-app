@@ -452,3 +452,12 @@ input[type=password] {
 }
 
 
+.widthpercsign{
+  margin-top: 10px;
+  width: 200px;
+}
+
+.widthperc{
+  margin-top: 5px;
+  width: 200px;
+}
