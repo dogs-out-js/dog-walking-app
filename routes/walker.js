@@ -128,7 +128,7 @@ router.get('/planned-walks', (req, res, next) => {
 })
 
 router.get('/owner-details', (req, res, next) => {
-    res.render('owner-details');
+    res.render('walker/owner-details');
 })
 
 
