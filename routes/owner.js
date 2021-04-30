@@ -5,9 +5,16 @@ const Request = require("../models/Request");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
 
+router.post('/find-walkers', (req, res, next) => {
+    const{city, district} = req.body; 
+    res.render('owner/find-walkers');  
+})
+
 router.get('/find-walkers', (req, res, next) => {
-    Walker.find()
+    const{city, district} = req.body; 
+    Walker.find({$or: [{city: city},{district: district}]})
         .then(walkers => {
+            console.log("walkers", walkers)
             res.render('owner/find-walkers', {walkerList: walkers})
         })
         .catch(err => {
