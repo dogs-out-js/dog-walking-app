@@ -1,18 +1,18 @@
 <div id='walkerDetails' class='screenSetup centerItems'>
     <div class="alignLeft" >
-        <a class="backPadding" href="/owner/find-walkers"> ⇽ Back</a>
+        <a class="backPadding" href="/walker/incoming-requests"> ⇽ Back</a>
     </div>
     
     <div class="backgroundShape">
         <img src="/images/bg-rect.svg" alt="background rect">
     </div>
 
-    {{#with currentOwner}}
+    {{#with ownerDetails}}
     <div class='cropToCircle' >
         <img class='profilePic' src="{{dogImg}}" alt="walker profile picture">
     </div>
 
-    <button><a href="/owner/edit">Edit my profile</a></button>
+    
 
     <h2>{{username}}'s dog</h2>
     <div class="profileBox">
@@ -41,10 +41,6 @@
         <h3> Special needs</h3>
         <p>{{dogsSpecialNeeds}}</p>
     </div>
-
-    
     {{/with}}
-
-
 </div>
 
