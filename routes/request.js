@@ -8,10 +8,6 @@ const Request = require("../models/Request");
 router.post('/received-requests/:id', (req, res, next) => {
     const walkerId = req.params.id;
     const ownerId = req.session.user._id
-    //console.log(req.session._id);
-    //console.log(walkerId);
-    // console.log('owner', req.session.user);
-    //date, time, duration, sentBy, sentTo
     let {date, time, duration} = req.body;
 
     Request.create({
@@ -23,9 +19,7 @@ router.post('/received-requests/:id', (req, res, next) => {
         accepted: false
     })
     .then((request) => {
-        //res.redirect('request-succesful');
         res.render('received-requests', {requestDetails: request})
-        //res.redirect('received-requests', {request})
     })
     .catch(err => {
         console.log(err);
