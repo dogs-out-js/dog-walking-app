@@ -221,6 +221,8 @@ input[type=password] {
 }
 
 /* owner */
+
+
 #findWalkerheader{
   width: 100%;
   margin: 30px 0px 30px 0px;
@@ -240,6 +242,7 @@ input[type=password] {
 }
 
 .foundWalker{
+  
   width: 320px;
   background-color: white;
   font-size: 18px;
@@ -249,7 +252,7 @@ input[type=password] {
   border: 1px solid lightgrey;
   box-shadow: 2px 4px 4px lightgrey;
   border-radius: 15px;
-  margin: 7.5px 0px 7.5px 0px;
+  margin: 7.5px px0 7.5px 0px;
 }
 
 .foundWalker a{
@@ -281,7 +284,7 @@ input[type=password] {
 }
 
 .centerFlex{
-  /* margin: 0 auto; */
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -452,3 +455,12 @@ input[type=password] {
 }
 
 
+.widthpercsign{
+  margin-top: 10px;
+  width: 200px;
+}
+
+.widthperc{
+  margin-top: 5px;
+  width: 200px;
+}
