@@ -77,8 +77,6 @@ router.get('/edit', (req, res, next) => {
         .then(currentWalker => {
             res.render('walker/edit', {currentWalker});
         })
-
-    
 })
 
 router.post('/profile', (req, res, next) => {
@@ -127,6 +125,10 @@ router.get('/planned-walks', (req, res, next) => {
             next(err);
           })
     
+})
+
+router.get('/owner-details', (req, res, next) => {
+    res.render('walker/owner-details');
 })
 
 
