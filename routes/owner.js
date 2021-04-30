@@ -4,6 +4,7 @@ const { Router } = require("express");
 const Request = require("../models/Request");
 const Owner = require("../models/Owner");
 const Walker = require("../models/Walker");
+const { uploader, cloudinary } = require("../config/cloudinary");
 
 router.post('/find-walkers', (req, res, next) => {
     const{city, district} = req.body; 
@@ -23,7 +24,6 @@ router.get('/find-walkers', (req, res, next) => {
     console.log(req.body);
     Walker.find({$or: [{city: city},{district: district}]})
         .then(walkers => {
-            console.log("walkers", walkers)
             res.render('owner/find-walkers', {walkerList: walkers})
         })
         .catch(err => {
@@ -60,10 +60,17 @@ router.get('/edit', (req, res, next) => {
         })  
 })
 
-router.post('/profile', (req, res, next) => {
+router.post('/profile', uploader.single('photo'), (req, res, next) => {
     let currentOwner = req.session.user;
     const {username, email, dogName, dogBreed, dogAge, dogSize, dogsSpecialNeeds, dogImg, city, district} = req.body;
-    Owner.findByIdAndUpdate(req.session.user._id, {username: req.body.username, email: email, dogName: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogsSpecialNeeds: dogsSpecialNeeds, dogImg: dogImg, city: city, district: district}, {new: true})
+
+    
+    const imgPath = req.file.path;
+    const imgName = req.file.originalname;
+    const publicId = req.file.filename;
+    
+    
+    Owner.findByIdAndUpdate(req.session.user._id, {username: req.body.username, email: email, dogName: dogName, dogBreed: dogBreed, dogAge: dogAge, dogSize: dogSize, dogsSpecialNeeds: dogsSpecialNeeds, dogImg: dogImg, imgPath: imgPath, imgName: imgName, publicId: publicId, city: city, district: district}, {new: true})
         .then((updatedOwner) => {
             res.redirect('/owner/profile');
         })

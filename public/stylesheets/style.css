@@ -9,12 +9,14 @@
   font-family: 'Karla', 'Montserrat', Arial;
   margin: 0;
   padding: 0;
+  font-weight: 400px;
 }
 body {
-  /* background-color: white; */
+  background-color: white; */
   /* width: 375px; */
   /* padding: 50px; */
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: 'Karla', 'Montserrat', Arial;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .screenSetup{
@@ -307,6 +309,7 @@ input[type=password] {
   bottom: 0;
   width: 100%;
   margin-bottom: 5px;
+  font-weight: bolder;
 }
 
 .bioOwner{

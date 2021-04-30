@@ -1,8 +1,9 @@
 <div id="editOwner">
 <h2>Edit your profile</h2>
+{{!-- test --}}
 
 {{#with currentOwner}}
-<form action="/owner/profile" method="POST" >
+<form action="/owner/profile" method="POST" enctype="multipart/form-data" >
 {{!-- enctype="multipart/form-data" --}}
 
 <div>
